@@ -1,15 +1,62 @@
-# Woche 1: Erste Schritte in Python
+# Woche 1: Python Grundlagen I
 
 ## Lernziele
 
-* Installation
-* Python Grundlagen kennenlernen
+* Arbeitsumgebung einrichten (Installation Anaconda oder Miniconda)
+* Python-Grundlagen verstehen
 * Erste Variablen verwenden 
 * grundlegende Datentypen unterscheiden
 * Operationen anwenden
+* erste Fehlermeldungen verstehen und beheben
+---
+## 0. Orientierung: Wie Sie diese Woche bearbeiten
+Diese Seite ist so aufgebaut, dass Sie Schritt für Schritt durch die Grundlagen geführt werden.
+Bitte arbeiten Sie aktiv mit:
+* Führen Sie jeden Codeblock selbst aus (entweder in Google Colab oder Spyder)
+* Ändern Sie Werte und beobachten Sie, was passiert.
+* Notieren Sie Ihre Vermutung über das Ergebnis, bevor Sie den Code ausführen.
+
 
 
 ---
+
+## 1. Was ist Python?
+
+Python ist eine **Programmiersprache**, die besonders geeignet ist für:
+* wissenschaftliches Arbeiten  
+* Datenanalyse  
+* Experimente in der Psychologie  
+
+Python ist **interpretiert**:  
+Das bedeutet, dein Code wird Zeile für Zeile ausgeführt.
+Das hat Vorteile:
+* Sie sehen schnell Ergebnisse
+* Fehler lassen sich gut lokalisieren
+* Sie können interaktiv arbeiten
+
+---
+
+## 2. Ihre Arbeitsumgebung
+Es gibt verschiedene IDEs, mit denen Python-Code ausgeführt werden kann.
+
+### **Option A: Google Colab (empfohlen für Woche 1–2)**
+Colab ist ideal für den Einstieg, weil:
+* keine Installation notwendig ist
+* Codezellen einzeln ausgeführt werden können
+* Sie sofort Rückmeldungen erhalten
+
+**Hinweis:**
+Wenn Sie eine Zelle erneut ausführen, werden Variablen überschrieben.
+Wenn Sie eine neue Zelle ausführen, stehen frühere Variablen weiterhin zur Verfügung.
+
+https://colab.research.google.com/
+
+### **Option B: Spyder**
+Ideal für Experimente, größere Projekte, ausführen von PsychoPy‑Code und zur Datenauswertung.
+
+### **Option C: PsychoPy Coder**
+Wird ab Woche 5 wichtig.
+
 
 ## Erstes Programm
 
@@ -18,21 +65,36 @@ print("Hallo Welt!")
 ```
 
 Aufgabe:
-Ändern Sie den Text so, dass Ihr eigener Name ausgegeben wird.
+Ändern Sie in Google Colab den Text so, dass Ihr eigener Name ausgegeben wird.
 
 ---
 
 ## Variablen
 
-Variablen speichern Werte.
+Variablen speichern Werte. Es gibt verschiedene Typen:
+* str -> Text
+* int -> ganze Zahl
+* float -> Kommazahl
+* bool -> True/False
 
 ```python
 name = "Anna"
 alter = 20
+rt = 0.532
 
 print(name)
 print(alter)
-```
+print(type(rt))
+
+
+**Warum sind Variablen wichtig?**
+In Experimenten speichern Variablen z. B.:
+* Reaktionszeiten
+* Stimulusnamen
+* Tastendrücke
+* Versuchspersonen‑IDs
+Sie sind das Fundament jedes Experiments.
+
 
 ---
 
@@ -147,6 +209,70 @@ print(x * y)
 
 ---
 
+## 7. Typische Anfängerfehler
+
+Beim Einstieg in Python treten häufig ähnliche Fehler auf. Diese sind völlig normal und gehören zum Lernprozess dazu. Nutzen Sie Fehlermeldungen als Hinweise — sie helfen Ihnen, Ihren Code besser zu verstehen.
+
+### Fehlende Anführungszeichen
+Strings müssen immer in Anführungszeichen stehen.
+
+```python
+name = Anna      # Fehler
+name = "Anna"    # korrekt
+```
+
+### Falsche Groß- und Kleinschreibung
+```python
+Print("Hallo")   # Fehler
+print("Hallo")   # korrekt
+```
+
+### Variablen vor ihrer Definition verwenden
+Variablen müssen definiert sein, bevor sie verwendet werden.
+```python
+print(x)   # Fehler
+x = 5
+```
+
+### Verwechslung von Zahl und Text
+Zahlen und Strings können nicht direkt kombiniert werden.
+```python
+print("RT: " + 0.5)        # Fehler
+print("RT: " + str(0.5))   # korrekt
+```
+
+### Fehlende oder falsche Klammern
+Python verwendet Einrückungen, um Codeblöcke zu strukturieren.
+```python
+if True:
+print("Hallo")   # Fehler
+```
+Korrekt wöre:
+```python
+if True:
+    print("Hallo")
+
+```
+
+### Einrückungsfehler
+Python benötigt korrekte Syntax.
+```python
+print "Hallo"    # Fehler
+print("Hallo")   # korrekt
+```
+
+### Tippfehler in Variablennamen
+Schon ein kleiner Schreibfehler führt zu einem Fehler.
+```python
+reaction_time = 0.5
+print(reation_time)   # Fehler
+```
+
+  
+**Fehlermeldungen sind keine Katastrophe, sondern Hinweise. Jede Fehlermeldung bringt Sie näher zum funktionierenden Code.**
+
+---
+
 ## Lösungen
 
 <details>
@@ -154,7 +280,7 @@ print(x * y)
 
 ```python
 name = "Larissa"
-alter = 25
+alter = 35
 zahl = 7
 
 print(name)
