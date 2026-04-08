@@ -50,7 +50,7 @@ Colab ist ideal für den Einstieg, weil:
 Wenn Sie eine Zelle erneut ausführen, werden Variablen überschrieben.
 Wenn Sie eine neue Zelle ausführen, stehen frühere Variablen weiterhin zur Verfügung.
 
-https://colab.research.google.com/
+https://colab.research.google.com/drive/1TwjsH7Vfq8q27BesvJgrsBPZ_8a9K3nc?usp=sharing
 
 ### **Option B: Spyder**
 Ideal für Experimente, größere Projekte, ausführen von PsychoPy‑Code und zur Datenauswertung.
