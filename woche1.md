@@ -8,6 +8,7 @@
 * grundlegende Datentypen unterscheiden
 * Operationen anwenden
 * erste Fehlermeldungen verstehen und beheben
+
 ---
 ## 0. Orientierung: Wie Sie diese Woche bearbeiten
 Diese Seite ist so aufgebaut, dass Sie Schritt für Schritt durch die Grundlagen geführt werden.
