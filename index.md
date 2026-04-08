@@ -14,8 +14,10 @@ print(a + b)
 ### Aufgabe 2
 ```python
 print("2" + "3")
-
+```
 
 ### Lösung
+```python
 <details> <summary>Klicken zum Anzeigen</summary>
 print("23")
+```
