@@ -2,7 +2,7 @@
 
 ## Lernziele
 
-Nach dieser Einheit können Studierende:
+Nach dieser Einheit können Sie:
 
 * einfache Python-Programme lesen und schreiben
 * Variablen verwenden
@@ -14,7 +14,7 @@ Nach dieser Einheit können Studierende:
 ## Erstes Programm
 
 ```python
-print("Hallo Welt")
+print("Hallo Welt!")
 ```
 
 Aufgabe:
