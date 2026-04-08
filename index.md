@@ -9,8 +9,10 @@ Schreibe ein Programm, das zwei Zahlen addiert.
 a = 2
 b = 3
 print(a + b)
+```
 
 ### Aufgabe 2
+```python
 print("2" + "3")
 
 
