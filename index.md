@@ -19,5 +19,4 @@ Jede Woche enthält:
 ## Inhalte
 
 - [Woche 1](woche1.html)
-- [Woche 2](woche2.html)
 
