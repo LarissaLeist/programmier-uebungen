@@ -85,7 +85,7 @@ rt = 0.532
 print(name)
 print(alter)
 print(type(rt))
-
+```
 
 **Warum sind Variablen wichtig?**
 In Experimenten speichern Variablen z. B.:
