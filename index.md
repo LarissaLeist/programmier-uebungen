@@ -17,8 +17,6 @@ print("2" + "3")
 ```
 
 ### Lösung
-```python
 <details> <summary>Klicken zum Anzeigen</summary>
 print("23")
-</details> ```
-```
+</details> 
