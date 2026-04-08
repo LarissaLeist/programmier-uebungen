@@ -2,12 +2,12 @@
 
 ## Lernziele
 
-Nach dieser Einheit können Sie:
-
-* einfache Python-Programme lesen und schreiben
-* Variablen verwenden
+* Installation
+* Python Grundlagen kennenlernen
+* Erste Variablen verwenden 
 * grundlegende Datentypen unterscheiden
-* Vorhersagen über Code treffen
+* Operationen anwenden
+
 
 ---
 
