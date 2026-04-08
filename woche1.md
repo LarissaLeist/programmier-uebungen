@@ -130,6 +130,12 @@ Notieren Sie Ihre Antwort und überprüfen Sie sie anschließend.
 
 ## Datentypen
 
+Python entscheidet anhand des Typs:
+* welche Operationen erlaubt sind
+* wie Werte gespeichert werden
+* wie sie ausgegeben werden
+
+
 ```python
 a = 5        # int
 b = 3.14     # float
