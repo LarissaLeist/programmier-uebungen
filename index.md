@@ -1,25 +1,19 @@
-# Python Übungen 🐍
+# Seminar: Programmierung für Laborexperimenten in Python und Psychopy 🐍
 
-## Woche 1
+Dieses Repository begleitet das Seminar *Programmierung für Laborexperimenten* (Python & PsychoPy).  
+Es enthält wöchentliche Lernmaterialien, Codebeispiele, Übungsaufgaben und Mini‑Projekte.
 
-### Aufgabe 1
-Schreibe ein Programm, das zwei Zahlen addiert.
+## Struktur
+- **Wochen 1–4:** Python‑Grundlagen  
+- **Wochen 5–9:** PsychoPy für Experimente  
 
-```python
-a = 2
-b = 3
-print(a + b)
-```
+Jede Woche enthält:
+- Lernziele  
+- Inhalte  
+- Beispielcode  
+- Übungsaufgaben  
+- Vertiefungen  
 
-### Aufgabe 2
-```python
-print("2" + "3")
-```
-
-### Lösung
-<details> <summary>Klicken zum Anzeigen</summary>
-print("23")
-</details> 
 
 
 ## Inhalte
