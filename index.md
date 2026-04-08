@@ -20,4 +20,5 @@ print("2" + "3")
 ```python
 <details> <summary>Klicken zum Anzeigen</summary>
 print("23")
+</details> ```
 ```
