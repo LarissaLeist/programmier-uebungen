@@ -253,7 +253,7 @@ Python verwendet Einrückungen, um Codeblöcke zu strukturieren.
 if True:
 print("Hallo")   # Fehler
 ```
-Korrekt wöre:
+Korrekt wäre:
 ```python
 if True:
     print("Hallo")
