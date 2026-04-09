@@ -29,7 +29,7 @@ Python ist eine **Programmiersprache**, die besonders geeignet ist für:
 * Experimente in der Psychologie  
 
 Python ist **interpretiert**:  
-Das bedeutet, dein Code wird Zeile für Zeile ausgeführt.
+Das bedeutet, Ihr Code wird Zeile für Zeile ausgeführt.
 Das hat Vorteile:
 * Sie sehen schnell Ergebnisse
 * Fehler lassen sich gut lokalisieren
