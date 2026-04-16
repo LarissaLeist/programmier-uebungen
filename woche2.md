@@ -121,6 +121,25 @@ print(wort[4:])    # ab Index 4 bis Ende
 len("Hallo")
 ```
 
+## 4. Anwendung: Stimuluslisten
+
+In Experimenten arbeiten Sie oft mit Listen:
+```python
+stimuli = ["Haus", "Baum", "Auto", "Hund"]
+print(stimuli[0])
+print(stimuli[-1])   # letztes Element
+```
+
+Listen können auch Listen enthalten:
+
+```python
+trials = [
+    ["Haus", 500],
+    ["Baum", 700],
+    ["Auto", 450]
+]
+
+```
 
 
 
@@ -171,8 +190,158 @@ Verwenden Sie direkt verständliche Variablennamen!
 # Ihr Code hier
 ```
 
+### Aufgabe 5: Mini‑Experiment
+
+Erstellen Sie eine Liste mit drei Stimulusnamen.
+Fügen Sie einen vierten Stimulus hinzu.
+Geben Sie den zweiten Stimulus aus.
 
 ```python
 # Ihr Code hier
 ```
 
+---
+## Aufgaben zur Vertiefung
+### Aufgabe 6: Indexing
+Denken Sie erst über das Ergebnis nach, bevor Sie es ausführen.
+Was wird ausgegeben? Notieren Sie Ihre Vermutung. 
+
+```python
+liste = [10, 20, 30, 40]
+print(liste[1])
+print(liste[-1])
+```
+
+Was wird ausgegeben?
+```python
+s = "Psychologie"
+print(s[2:6])
+print(s[:3])
+print(s[5:])
+```
+
+
+```python
+# Ihr Code hier
+```
+
+---
+
+# Typische Fehler
+
+Index außerhalb des Bereichs
+```python
+farben = ["rot", "grün"]
+print(farben[5])   # Fehler
+```
+
+Tupel verändern wollen
+```python
+t = (1, 2, 3)
+t[0] = 9   # Fehler
+```
+
+Strings wie Listen verändern wollen
+```python
+# Ihr Code hier
+```
+Falsche Klammern
+```python
+liste = (1, 2, 3]   # Fehler
+```
+
+Slicing falsch interpretieren
+```python
+wort = "Python"
+print(wort[0:2])   # gibt 'Py' aus, nicht 'Pyt'
+```
+
+# Lösungen
+<details>
+<summary>Aufgabe 1</summary>
+```python
+gerichte = ["Pizza", "Sushi", "Pasta"]
+print(gerichte[0])
+print(gerichte[-1])
+```
+</details>
+
+<details>
+<summary>Aufgabe 2</summary>
+Ein Tupel kann nicht verändert werden.
+```python
+t = (3, 7)
+t[0] = 9   # führt zu TypeError
+```
+</details>
+
+<details>
+<summary>Aufgabe 3</summary>
+```python
+s = "Experiment"
+print(s[:3])
+print(s[-4:])
+print(len(s))
+
+```
+</details>
+
+
+<details>
+<summary>Aufgabe 4</summary>
+```python
+stimuli = ["Haus", "Baum", "Auto"]
+stimuli.append("Hund")
+print(stimuli[1])
+
+```
+</details>
+
+<details>
+<summary>Aufgabe 5</summary>
+```python
+20
+40
+
+```
+</details>
+
+<details>
+<summary>Aufgabe 6</summary>
+```python
+ychol
+Psy
+logie
+
+```
+</details>
+
+
+<details>
+<summary>Aufgabe 7</summary>
+```python
+zahlen = [1, 2, 3, 4, 5]
+tup = ("rot", "blau")
+text = "Python"
+
+print(zahlen[1])
+print(tup[1])
+print(text[1])
+
+```
+</details>
+
+---
+# Zusammenfassung
+* Listen sind veränderbar
+* Tupel sind unveränderlich
+* Strings sind Sequenzen von Zeichen
+* Indexing beginnt bei 0
+* Slicing wählt Teilbereiche aus
+* Sequenzen sind zentral für Experimente (Stimuli, Trials, RT‑Listen)
+
+# Ausblick
+Nächste Woche lernen Sie:
+* Bedingungen (if/elif/else)
+* Wiederholungen (for‑Schleifen)
+* erste Automatisierung von Abläufen
