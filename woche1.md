@@ -248,7 +248,7 @@ print("RT: " + 0.5)        # Fehler
 print("RT: " + str(0.5))   # korrekt
 ```
 
-### Fehlende oder falsche Klammern
+### Einrückungsfehler
 Python verwendet Einrückungen, um Codeblöcke zu strukturieren.
 ```python
 if True:
@@ -261,7 +261,7 @@ if True:
 
 ```
 
-### Einrückungsfehler
+### Fehlende oder falsche Klammern
 Python benötigt korrekte Syntax.
 ```python
 print "Hallo"    # Fehler
