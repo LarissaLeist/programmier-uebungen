@@ -257,8 +257,10 @@ print(wort[0:2])   # gibt 'Py' aus, nicht 'Pyt'
 ```
 
 # Lösungen
+
 <details>
 <summary>Aufgabe 1</summary>
+    
 ```python
 gerichte = ["Pizza", "Sushi", "Pasta"]
 print(gerichte[0])
@@ -269,6 +271,7 @@ print(gerichte[-1])
 <details>
 <summary>Aufgabe 2</summary>
 Ein Tupel kann nicht verändert werden.
+    
 ```python
 t = (3, 7)
 t[0] = 9   # führt zu TypeError
@@ -277,48 +280,51 @@ t[0] = 9   # führt zu TypeError
 
 <details>
 <summary>Aufgabe 3</summary>
+    
 ```python
 s = "Experiment"
 print(s[:3])
 print(s[-4:])
 print(len(s))
-
 ```
 </details>
 
 
 <details>
 <summary>Aufgabe 4</summary>
+
 ```python
 stimuli = ["Haus", "Baum", "Auto"]
 stimuli.append("Hund")
 print(stimuli[1])
-
 ```
 </details>
 
 <details>
 <summary>Aufgabe 5</summary>
+    
 ```python
 20
 40
-
 ```
 </details>
 
 <details>
 <summary>Aufgabe 6</summary>
-```python
-ychol
-Psy
-logie
 
+```python
+s = "Psychologie"
+
+print(s[2:7])   # ychol
+print(s[:3])    # Psy
+print(s[-5:])   # logie
 ```
 </details>
 
 
 <details>
 <summary>Aufgabe 7</summary>
+    
 ```python
 zahlen = [1, 2, 3, 4, 5]
 tup = ("rot", "blau")
