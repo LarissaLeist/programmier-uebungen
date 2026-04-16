@@ -1,4 +1,4 @@
-# Woche 2: Python Grundlagen I
+# Woche 2: Python Grundlagen II
 Listen, Tupel und Strings
 
 ## Lernziele
