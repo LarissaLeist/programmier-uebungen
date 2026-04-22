@@ -460,11 +460,12 @@ print(wort[0:2])
 <summary>Aufgabe 1a – Meine erste Liste</summary>
 
 ```python
+
 lieblingsgerichte = ["Pizza", "Sushi", "Pasta"]
 print(lieblingsgerichte[0])    # → "Pizza"
 print(lieblingsgerichte[-1])   # → "Pasta"
-```
 
+```
 </details>
 
 
