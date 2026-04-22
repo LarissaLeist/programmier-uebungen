@@ -142,8 +142,8 @@ Das ist kein Bug – das ist die Absicht. Tupel schützen Ihre Daten.
 meine_liste = [1, 2, 3]    # eckige Klammern
 mein_tupel  = (1, 2, 3)    # runde Klammern
 
-print(type(meine_liste))   # → <class 'list'>
-print(type(mein_tupel))    # → <class 'tuple'>
+print(type(meine_liste))   # → <type 'list'>
+print(type(mein_tupel))    # → <type 'tuple'>
 ```
 
 ---
