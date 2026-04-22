@@ -380,4 +380,4 @@ Ein String wird mehrfach wiederholt.
 
 ## Ausblick
 
-In der nächsten Einheit werden Schleifen und Bedingungen eingeführt.
+In der nächsten Woche beschäftigen wir uns genauer mit Listen, Tupel und Strings.
