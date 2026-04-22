@@ -501,6 +501,7 @@ print(treffer)
 <details>
 <summary>Aufgabe 1 – Reaktionsbewertung</summary>
 
+
 ```python
 rt = 720
 
@@ -520,16 +521,19 @@ An der Grenze `rt = 600`: Beide ersten Bedingungen sind `False`, also `else` →
 <details>
 <summary>Aufgabe 2 – Stimulusliste</summary>
 
+
 ```python
 stimuli = ["Haus", "Baum", "Auto", "Hund"]
 
 for i, stimulus in enumerate(stimuli):
     print(f"Trial {i + 1}: {stimulus}")
 ```
+
 </details>
 
 <details>
 <summary>Aufgabe 3 – Vergleich vs. Zuweisung</summary>
+
 
 ```python
 x = 10
@@ -547,6 +551,7 @@ if antwort == "links":
 <details>
 <summary>Aufgabe 4 – Trials filtern</summary>
 
+
 ```python
 reaktionszeiten = [512, 189, 834, 1200, 445, 301, 78, 956, 1050, 523]
 
@@ -561,10 +566,12 @@ for rt in reaktionszeiten:
 
 print(f"\nGültige Trials: {gueltige_trials} von {len(reaktionszeiten)}")
 ```
+
 </details>
 
 <details>
 <summary>Aufgabe 5 – Accuracy</summary>
+
 
 ```python
 trials = [
@@ -590,10 +597,12 @@ print(f"Korrekt:   {korrekt_n}")
 print(f"Inkorrekt: {inkorrekt_n}")
 print(f"Accuracy:  {accuracy:.0%}")
 ```
+
 </details>
 
 <details>
 <summary>Aufgabe 6 – Vorhersagen</summary>
+
 
 ```python
 # Block A: 0, 2, 4
@@ -641,10 +650,12 @@ print(f"Mittlere RT inkongruent: {rt_inkongr_mean:.0f} ms")
 print(f"Stroop-Effekt:           {stroop_effekt:.0f} ms")
 print(f"Accuracy:                {accuracy:.0%}")
 ```
+
 </details>
 
 <details>
 <summary>Aufgabe 8 – Fehler finden</summary>
+
 
 ```python
 # (a) Fehlender Doppelpunkt → SyntaxError
@@ -666,6 +677,7 @@ if stimuli[i] == "Haus":   # Großschreibung korrigiert
 for w in werte:
     treffer = treffer + 1  # oder: treffer += 1
 ```
+
 </details>
 
 ---
