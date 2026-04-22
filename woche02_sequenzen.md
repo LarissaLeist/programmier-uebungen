@@ -601,6 +601,79 @@ print(wort[0:3])   # → "Pyt"
 
 ---
 
+## Methodenreferenz: Listen und Strings
+
+> 📌 **Zum Nachschlagen** – kein Lernstoff für diese Sitzung.  
+> Sie müssen das nicht auswendig kennen. Schauen Sie hier nach, wenn Sie in einer Aufgabe oder im Projekt etwas brauchen.  
+> Methoden werden in Woche 4 konzeptionell erklärt (was ist überhaupt eine Methode?).
+
+### Listen-Methoden
+
+```python
+liste = [3, 1, 4, 1, 2]
+```
+
+| Methode | Beispiel | Ergebnis / Effekt |
+|---|---|---|
+| `append(x)` | `liste.append(9)` | fügt `9` am Ende hinzu |
+| `extend(iterable)` | `liste.extend([7, 8])` | fügt mehrere Elemente hinzu |
+| `insert(i, x)` | `liste.insert(0, 99)` | fügt `99` an Position 0 ein |
+| `remove(x)` | `liste.remove(1)` | entfernt erstes Vorkommen von `1` |
+| `pop()` | `liste.pop()` | entfernt letztes Element und gibt es zurück |
+| `sort()` | `liste.sort()` | sortiert die Liste aufsteigend (in-place) |
+| `reverse()` | `liste.reverse()` | dreht die Reihenfolge um (in-place) |
+| `index(x)` | `liste.index(4)` | gibt die Position von `4` zurück |
+| `count(x)` | `liste.count(1)` | gibt an, wie oft `1` vorkommt |
+
+> ⚠️ **In-place** bedeutet: `sort()` und `reverse()` verändern die Liste direkt und geben `None` zurück.  
+> `liste = liste.sort()` ist ein häufiger Fehler – danach ist `liste` gleich `None`.
+
+```python
+# Beispiel: Reaktionszeiten sortieren
+reaktionszeiten = [512, 389, 678, 445]
+reaktionszeiten.sort()
+print(reaktionszeiten)   # → [389, 445, 512, 678]
+```
+
+### String-Methoden
+
+```python
+text = "  Hallo Welt  "
+```
+
+| Methode | Beispiel | Ergebnis |
+|---|---|---|
+| `lower()` | `"Haus".lower()` | `"haus"` |
+| `upper()` | `"Haus".upper()` | `"HAUS"` |
+| `strip()` | `text.strip()` | `"Hallo Welt"` (Leerzeichen entfernt) |
+| `replace(a, b)` | `"Haus".replace("H", "M")` | `"Maus"` |
+| `split()` | `"a,b,c".split(",")` | `["a", "b", "c"]` |
+| `find(x)` | `"Python".find("t")` | `2` (Position von "t") |
+| `startswith(x)` | `"VP01".startswith("VP")` | `True` |
+| `endswith(x)` | `"data.csv".endswith(".csv")` | `True` |
+
+> ⚠️ **Strings sind unveränderlich.** String-Methoden verändern den Original-String nicht,  
+> sondern geben immer einen neuen String zurück:
+> ```python
+> vp_id = "  VP01  "
+> vp_id.strip()        # gibt "VP01" zurück, aber vp_id ist noch "  VP01  "
+> vp_id = vp_id.strip()  # so wird der neue Wert gespeichert
+> ```
+
+```python
+# Typischer Anwendungsfall: Dateinamen auswerten
+dateiname = "223_CPT_16-04-26.csv"
+
+print(dateiname.endswith(".csv"))        # → True
+print(dateiname.startswith("223"))       # → True
+print(dateiname.replace(".csv", ""))     # → "223_CPT_16-04-26"
+teile = dateiname.replace(".csv", "").split("_")
+print(teile)                             # → ["223", "CPT", "16-04-26"]
+```
+
+---
+
+
 ## Zusammenfassung
 
 | | Liste | Tupel | String |
