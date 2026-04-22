@@ -1,7 +1,6 @@
 # Woche 2: Python Grundlagen II
 ## Listen, Tupel und Strings
 
-> **Laufzeit:** ca. 1,5 Stunden  
 > **Voraussetzung:** Woche 1 – Variablen und Datentypen
 
 ---
@@ -34,7 +33,7 @@ Diese Woche dreht sich alles um **Sequenzen** – Datenstrukturen, die mehrere W
 
 ---
 
-## Theorieteil (ca. 30 Minuten)
+## Theorieteil
 
 ---
 
@@ -231,7 +230,7 @@ print(trials[2][1])     # → 450  (RT des dritten Trials)
 
 ---
 
-## Übungsteil (ca. 60 Minuten)
+## Übungsteil
 
 > Die Aufgaben sind in drei Stufen gegliedert:
 > - 🟢 **Basis** – Kernkonzepte direkt anwenden
