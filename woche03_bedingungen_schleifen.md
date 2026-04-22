@@ -1,7 +1,6 @@
 # Woche 3: Python Grundlagen III
 ## Bedingungen und Schleifen im Kontext von Experimenten
 
-> **Laufzeit:** ca. 1,5 Stunden  
 > **Voraussetzung:** Woche 2 – Listen, Tupel, Strings
 
 ---
@@ -37,7 +36,7 @@ Trial 3: ...                                                       ← Schleife
 
 ---
 
-## Theorieteil (ca. 35 Minuten)
+## Theorieteil
 
 ---
 
@@ -258,7 +257,7 @@ print(f"Accuracy: {accuracy:.0%}")   # → "75%"
 
 ---
 
-## Übungsteil (ca. 55 Minuten)
+## Übungsteil
 
 > - 🟢 **Basis** – einzelne Konzepte direkt anwenden
 > - 🟡 **Aufbau** – Konzepte kombinieren
