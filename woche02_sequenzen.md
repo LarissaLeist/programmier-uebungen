@@ -606,6 +606,7 @@ print(wort[0:3])   # → "Pyt"
 > 📌 **Zum Nachschlagen** – kein Lernstoff für diese Sitzung.  
 > Sie müssen das nicht auswendig kennen. Schauen Sie hier nach, wenn Sie in einer Aufgabe oder im Projekt etwas brauchen.  
 > Methoden werden in Woche 4 konzeptionell erklärt (was ist überhaupt eine Methode?).
+> Weiteres finden Sie in der Dokumentation: https://docs.python.org/3/tutorial/datastructures.html
 
 ### Listen-Methoden
 
