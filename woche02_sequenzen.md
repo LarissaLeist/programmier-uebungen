@@ -30,7 +30,7 @@ Diese Woche dreht sich alles um **Sequenzen** – Datenstrukturen, die mehrere W
 - Vor der Ausführung eine **Vorhersage** notieren
 - Fehlermeldungen aufmerksam lesen – sie sind Hinweise, keine Strafe
 
-> 💡 **Tipp:** Öffnen Sie ein Jupyter Notebook parallel zu diesem Dokument und tippen Sie den Code ab (nicht kopieren!). Das Abtippen hilft beim Lernen.
+> 💡 **Tipp:** Öffnen Sie ein Spyder oder Google Colab parallel zu diesem Dokument und tippen Sie den Code ab (nicht kopieren!). Das Abtippen hilft beim Lernen.
 
 ---
 
