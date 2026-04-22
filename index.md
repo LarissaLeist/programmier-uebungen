@@ -20,3 +20,4 @@ Jede Woche enthält:
 
 - [Woche 1](woche1.html)
 - [Woche 1 in Colab öffnen](https://colab.research.google.com/drive/1TwjsH7Vfq8q27BesvJgrsBPZ_8a9K3nc#scrollTo=XZX5amN4Tcvj)
+- [Woche 2](woche02_sequenzen.html)
