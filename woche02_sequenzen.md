@@ -464,7 +464,9 @@ lieblingsgerichte = ["Pizza", "Sushi", "Pasta"]
 print(lieblingsgerichte[0])    # → "Pizza"
 print(lieblingsgerichte[-1])   # → "Pasta"
 ```
+
 </details>
+
 
 <details>
 <summary>Aufgabe 1b – Logfile</summary>
@@ -474,8 +476,8 @@ trial = ["VP01", "Haus", 512, True]
 print(trial[0])    # → "VP01"
 print(trial[-1])   # → True
 ```
-
 Datentypen: `str` für ID und Stimulus, `int` für Reaktionszeit, `bool` für Korrektheit.
+
 </details>
 
 <details>
@@ -491,6 +493,7 @@ print(type(b))   # → <class 'tuple'>
 a[0] = 9   # funktioniert – Liste ist veränderlich
 b[0] = 9   # → TypeError – Tupel ist unveränderlich
 ```
+
 </details>
 
 <details>
@@ -500,8 +503,8 @@ b[0] = 9   # → TypeError – Tupel ist unveränderlich
 position = (960, 540)
 position[0] = 0   # → TypeError: 'tuple' object does not support item assignment
 ```
-
 Die Fehlermeldung sagt genau, was nicht geht: Tupel unterstützen keine Zuweisung per Index.
+
 </details>
 
 <details>
@@ -520,6 +523,7 @@ print(aufgabe)
 print(datum)
 print(tag)
 ```
+
 </details>
 
 <details>
@@ -532,6 +536,7 @@ stimuli[1] = "Tisch"
 print(len(stimuli))    # → 4
 print(stimuli[1])      # → "Tisch"
 ```
+
 </details>
 
 <details>
@@ -552,6 +557,7 @@ print(stimuli[1])      # → "Tisch"
 # s[-5:]  → "logie"
 # len(s)  → 11
 ```
+
 </details>
 
 <details>
@@ -589,6 +595,7 @@ liste = (1, 2, 3)   # oder: [1, 2, 3]
 wort = "Python"
 print(wort[0:3])   # → "Pyt"
 ```
+
 </details>
 
 ---
