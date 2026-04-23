@@ -458,141 +458,127 @@ print(wort[0:2])
 
 <details>
 <summary>Aufgabe 1a – Meine erste Liste</summary>
-        
-```python
-lieblingsgerichte = ["Pizza", "Sushi", "Pasta"]
+
+<pre><code class="language-python">lieblingsgerichte = ["Pizza", "Sushi", "Pasta"]
 print(lieblingsgerichte[0])    # → "Pizza"
 print(lieblingsgerichte[-1])   # → "Pasta"
-```
-</details>
+</code></pre>
 
+</details>
 
 <details>
 <summary>Aufgabe 1b – Logfile</summary>
-        
-```python
-trial = ["VP01", "Haus", 512, True]
+
+<pre><code class="language-python">trial = ["VP01", "Haus", 512, True]
 print(trial[0])    # → "VP01"
 print(trial[-1])   # → True
-```
-Datentypen: `str` für ID und Stimulus, `int` für Reaktionszeit, `bool` für Korrektheit.
-</details>
+</code></pre>
 
+Datentypen: `str` für ID und Stimulus, `int` für Reaktionszeit, `bool` für Korrektheit.
+
+</details>
 
 <details>
 <summary>Aufgabe 2 – Listen vs. Tupel</summary>
-        
-```python
-a = [1, 2, 3]
+
+<pre><code class="language-python">a = [1, 2, 3]
 b = (1, 2, 3)
-
-print(type(a))   # → <class 'list'>
-print(type(b))   # → <class 'tuple'>
-
+print(type(a))   # → &lt;class 'list'&gt;
+print(type(b))   # → &lt;class 'tuple'&gt;
 a[0] = 9   # funktioniert – Liste ist veränderlich
 b[0] = 9   # → TypeError – Tupel ist unveränderlich
-```
-</details>
+</code></pre>
 
+</details>
 
 <details>
 <summary>Aufgabe 3 – Tupel</summary>
 
-```python
-position = (960, 540)
+<pre><code class="language-python">position = (960, 540)
 position[0] = 0   # → TypeError: 'tuple' object does not support item assignment
-```
-Die Fehlermeldung sagt genau, was nicht geht: Tupel unterstützen keine Zuweisung per Index.
-</details>
+</code></pre>
 
+Die Fehlermeldung sagt genau, was nicht geht: Tupel unterstützen keine Zuweisung per Index.
+
+</details>
 
 <details>
 <summary>Aufgabe 4 – VP-ID zerlegen</summary>
-        
-```python
-vp_id = "223_CPT_16-04-26"
 
+<pre><code class="language-python">vp_id = "223_CPT_16-04-26"
 vp_nummer = vp_id[:3]     # → "223"
 aufgabe   = vp_id[4:7]    # → "CPT"
 datum     = vp_id[-8:]    # → "16-04-26"
 tag       = datum[:2]     # → "16"
-
 print(vp_nummer)
 print(aufgabe)
 print(datum)
 print(tag)
-```
+</code></pre>
+
 </details>
 
 <details>
 <summary>Aufgabe 5 – Stimulusliste aufbauen</summary>
 
-```python
-stimuli = ["Haus", "Baum", "Auto"]
+<pre><code class="language-python">stimuli = ["Haus", "Baum", "Auto"]
 stimuli.append("Hund")
 stimuli[1] = "Tisch"
 print(len(stimuli))    # → 4
 print(stimuli[1])      # → "Tisch"
-```
-</details>
+</code></pre>
 
+</details>
 
 <details>
 <summary>Aufgabe 6 – Vorhersagen</summary>
 
-```python
-# Block A:
+<pre><code class="language-python"># Block A:
 # liste[1]   → 20
 # liste[-1]  → 50
 # liste[1:3] → [20, 30]
 # liste[:2]  → [10, 20]
 # liste[3:]  → [40, 50]
-
 # Block B:
 # s[2:6]  → "ychol"  (Index 2,3,4,5)
 # s[:3]   → "Psy"
 # s[5:]   → "logie"
 # s[-5:]  → "logie"
 # len(s)  → 11
-```
+</code></pre>
+
 </details>
 
 <details>
 <summary>Aufgabe 7 – Trialstruktur</summary>
-        
-```python
-experiment = [
+
+<pre><code class="language-python">experiment = [
     ["Haus", 512, True],
     ["Baum", 678, False],
     ["Auto", 445, True],
 ]
-
 print(experiment[1][1])   # → 678  (RT des 2. Trials)
 print(experiment[2][0])   # → "Auto" (Stimulus des 3. Trials)
 print(len(experiment))    # → 3
-```
-</details>
+</code></pre>
 
+</details>
 
 <details>
 <summary>Aufgabe 8 – Fehler finden</summary>
-        
-```python
-# (a) IndexError: Liste hat Indizes 0–2, Index 3 existiert nicht
+
+<pre><code class="language-python"># (a) IndexError: Liste hat Indizes 0–2, Index 3 existiert nicht
 farben = ["rot", "grün", "blau"]
 print(farben[2])   # korrigiert: letzter gültiger Index ist 2
-
 # (b) TypeError: Tupel unveränderlich
 t = [10, 20, 30]   # korrigiert: Liste statt Tupel
-
 # (c) SyntaxError: öffnende runde Klammer, schließende eckige
 liste = (1, 2, 3)   # oder: [1, 2, 3]
-
 # (d) wort[0:2] gibt "Py" aus, nicht "Pyt"
-# stop-Index 2 ist exklusiv – Zeichen 0 und 1, also "P" und "y"
 wort = "Python"
 print(wort[0:3])   # → "Pyt"
-```
+</code></pre>
+
 </details>
 
 ---
