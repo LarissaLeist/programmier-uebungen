@@ -501,80 +501,66 @@ print(treffer)
 <details>
 <summary>Aufgabe 1 – Reaktionsbewertung</summary>
 
-
-```python
-rt = 720
-
+<pre><code class="language-python">rt = 720
 if rt < 200:
     print("zu schnell – ausschließen")
 elif rt < 600:
     print("gültig")
 else:
     print("zu langsam – ausschließen")
-```
+</code></pre>
 
-An der Grenze `rt = 200`: Die erste Bedingung `rt < 200` ist `False` (200 ist nicht kleiner als 200),  
-also greift `elif rt < 600` → Ausgabe: `"gültig"`.  
+An der Grenze `rt = 200`: Die erste Bedingung `rt < 200` ist `False` (200 ist nicht kleiner als 200),
+also greift `elif rt < 600` → Ausgabe: `"gültig"`.
 An der Grenze `rt = 600`: Beide ersten Bedingungen sind `False`, also `else` → `"zu langsam"`.
+
 </details>
 
 <details>
 <summary>Aufgabe 2 – Stimulusliste</summary>
 
-
-```python
-stimuli = ["Haus", "Baum", "Auto", "Hund"]
-
+<pre><code class="language-python">stimuli = ["Haus", "Baum", "Auto", "Hund"]
 for i, stimulus in enumerate(stimuli):
     print(f"Trial {i + 1}: {stimulus}")
-```
+</code></pre>
 
 </details>
 
 <details>
 <summary>Aufgabe 3 – Vergleich vs. Zuweisung</summary>
 
-
-```python
-x = 10
+<pre><code class="language-python">x = 10
 x = 5     # (a) x hat jetzt den Wert 5 – Zuweisung
 x == 5    # (b) fragt "Ist x gleich 5?" → True, aber weist nichts zu – x bleibt 5
-
 # (c) if antwort = "links" → SyntaxError, weil = Zuweisung ist
 # Korrekt:
 antwort = "links"
 if antwort == "links":
     print("korrekt")
-```
+</code></pre>
+
 </details>
 
 <details>
 <summary>Aufgabe 4 – Trials filtern</summary>
 
-
-```python
-reaktionszeiten = [512, 189, 834, 1200, 445, 301, 78, 956, 1050, 523]
-
+<pre><code class="language-python">reaktionszeiten = [512, 189, 834, 1200, 445, 301, 78, 956, 1050, 523]
 gueltige_trials = 0
-
 for rt in reaktionszeiten:
-    if 200 <= rt <= 1000:
+    if 200 &lt;= rt &lt;= 1000:
         print(f"{rt} ms → gültig")
         gueltige_trials = gueltige_trials + 1
     else:
         print(f"{rt} ms → ausgeschlossen")
-
 print(f"\nGültige Trials: {gueltige_trials} von {len(reaktionszeiten)}")
-```
+</code></pre>
 
 </details>
 
 <details>
 <summary>Aufgabe 5 – Accuracy</summary>
 
-
-```python
-trials = [
+<pre><code class="language-python">trials = [
     ["Haus",  512,  True],
     ["Baum",  678,  False],
     ["Auto",  445,  True],
@@ -582,40 +568,35 @@ trials = [
     ["Stuhl", 820,  False],
     ["Tisch", 334,  True],
 ]
-
 korrekt_n   = 0
 inkorrekt_n = 0
-
 for stimulus, rt, korrekt in trials:
     if korrekt:
         korrekt_n = korrekt_n + 1
     else:
         inkorrekt_n = inkorrekt_n + 1
-
 accuracy = korrekt_n / len(trials)
 print(f"Korrekt:   {korrekt_n}")
 print(f"Inkorrekt: {inkorrekt_n}")
 print(f"Accuracy:  {accuracy:.0%}")
-```
+</code></pre>
 
 </details>
 
 <details>
 <summary>Aufgabe 6 – Vorhersagen</summary>
 
-
-```python
-# Block A: 0, 2, 4
+<pre><code class="language-python"># Block A: 0, 2, 4
 # Block B: 3  (drei True-Werte)
 # Block C: "A", "C"  (Index 0 und 2 sind gerade)
-```
+</code></pre>
+
 </details>
 
 <details>
 <summary>Aufgabe 7 – Stroop</summary>
 
-```python
-stroop_trials = [
+<pre><code class="language-python">stroop_trials = [
     ["ROT",   "kongruent",   412, True],
     ["BLAU",  "inkongruent", 587, True],
     ["GRÜN",  "kongruent",   389, True],
@@ -623,13 +604,11 @@ stroop_trials = [
     ["BLAU",  "kongruent",   401, True],
     ["GRÜN",  "inkongruent", 712, True],
 ]
-
 rt_kongr_sum   = 0
 rt_inkongr_sum = 0
 n_kongr        = 0
 n_inkongr      = 0
 korrekt_n      = 0
-
 for stimulus, bedingung, rt, korrekt in stroop_trials:
     if bedingung == "kongruent":
         rt_kongr_sum = rt_kongr_sum + rt
@@ -639,47 +618,39 @@ for stimulus, bedingung, rt, korrekt in stroop_trials:
         n_inkongr      = n_inkongr + 1
     if korrekt:
         korrekt_n = korrekt_n + 1
-
 rt_kongr_mean   = rt_kongr_sum / n_kongr
 rt_inkongr_mean = rt_inkongr_sum / n_inkongr
 stroop_effekt   = rt_inkongr_mean - rt_kongr_mean
 accuracy        = korrekt_n / len(stroop_trials)
-
 print(f"Mittlere RT kongruent:   {rt_kongr_mean:.0f} ms")
 print(f"Mittlere RT inkongruent: {rt_inkongr_mean:.0f} ms")
 print(f"Stroop-Effekt:           {stroop_effekt:.0f} ms")
 print(f"Accuracy:                {accuracy:.0%}")
-```
+</code></pre>
 
 </details>
 
 <details>
 <summary>Aufgabe 8 – Fehler finden</summary>
 
-
-```python
-# (a) Fehlender Doppelpunkt → SyntaxError
+<pre><code class="language-python"># (a) Fehlender Doppelpunkt → SyntaxError
 if rt > 400:   # Doppelpunkt ergänzt
     print("langsam")
-
-# (b) Logikfehler: rt = 250 ist nicht < 200, also "ungültig"
+# (b) Logikfehler: rt = 250 ist nicht &lt; 200, also "ungültig"
 # Gemeint war wahrscheinlich:
 if rt > 200:
     print("gültig")
 else:
     print("ungültig")
-
 # (c) "haus" != "Haus" – Python unterscheidet Groß-/Kleinschreibung
 if stimuli[i] == "Haus":   # Großschreibung korrigiert
     print("Treffer")
-
 # (d) treffer wird auf 1 gesetzt statt hochgezählt
 for w in werte:
     treffer = treffer + 1  # oder: treffer += 1
-```
+</code></pre>
 
 </details>
-
 ---
 
 ## Zusammenfassung
