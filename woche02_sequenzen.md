@@ -458,32 +458,30 @@ print(wort[0:2])
 
 <details>
 <summary>Aufgabe 1a – Meine erste Liste</summary>
-
+        
 ```python
-
 lieblingsgerichte = ["Pizza", "Sushi", "Pasta"]
 print(lieblingsgerichte[0])    # → "Pizza"
 print(lieblingsgerichte[-1])   # → "Pasta"
-
 ```
 </details>
 
 
 <details>
 <summary>Aufgabe 1b – Logfile</summary>
-
+        
 ```python
 trial = ["VP01", "Haus", 512, True]
 print(trial[0])    # → "VP01"
 print(trial[-1])   # → True
 ```
 Datentypen: `str` für ID und Stimulus, `int` für Reaktionszeit, `bool` für Korrektheit.
-
 </details>
+
 
 <details>
 <summary>Aufgabe 2 – Listen vs. Tupel</summary>
-
+        
 ```python
 a = [1, 2, 3]
 b = (1, 2, 3)
@@ -494,8 +492,8 @@ print(type(b))   # → <class 'tuple'>
 a[0] = 9   # funktioniert – Liste ist veränderlich
 b[0] = 9   # → TypeError – Tupel ist unveränderlich
 ```
-
 </details>
+
 
 <details>
 <summary>Aufgabe 3 – Tupel</summary>
@@ -505,12 +503,12 @@ position = (960, 540)
 position[0] = 0   # → TypeError: 'tuple' object does not support item assignment
 ```
 Die Fehlermeldung sagt genau, was nicht geht: Tupel unterstützen keine Zuweisung per Index.
-
 </details>
+
 
 <details>
 <summary>Aufgabe 4 – VP-ID zerlegen</summary>
-
+        
 ```python
 vp_id = "223_CPT_16-04-26"
 
@@ -524,7 +522,6 @@ print(aufgabe)
 print(datum)
 print(tag)
 ```
-
 </details>
 
 <details>
@@ -537,8 +534,8 @@ stimuli[1] = "Tisch"
 print(len(stimuli))    # → 4
 print(stimuli[1])      # → "Tisch"
 ```
-
 </details>
+
 
 <details>
 <summary>Aufgabe 6 – Vorhersagen</summary>
@@ -558,12 +555,11 @@ print(stimuli[1])      # → "Tisch"
 # s[-5:]  → "logie"
 # len(s)  → 11
 ```
-
 </details>
 
 <details>
 <summary>Aufgabe 7 – Trialstruktur</summary>
-
+        
 ```python
 experiment = [
     ["Haus", 512, True],
@@ -577,9 +573,10 @@ print(len(experiment))    # → 3
 ```
 </details>
 
+
 <details>
 <summary>Aufgabe 8 – Fehler finden</summary>
-
+        
 ```python
 # (a) IndexError: Liste hat Indizes 0–2, Index 3 existiert nicht
 farben = ["rot", "grün", "blau"]
@@ -596,7 +593,6 @@ liste = (1, 2, 3)   # oder: [1, 2, 3]
 wort = "Python"
 print(wort[0:3])   # → "Pyt"
 ```
-
 </details>
 
 ---
