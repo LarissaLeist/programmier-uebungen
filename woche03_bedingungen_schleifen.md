@@ -201,7 +201,7 @@ stimuli = ["Haus", "Baum", "Auto"]
 
 for i, stimulus in enumerate(stimuli):
     print(f"Trial {i + 1}: {stimulus}")
-    print("Trial " + i + 1 +  ": " + stimulus) # Alternative Schreibweise
+    print("Trial " + str(i + 1) +  ": " + stimulus) # Alternative Schreibweise
 ```
 
 ```
