@@ -61,8 +61,8 @@ Zwei Regeln, die immer gelten:
 ```python
 rt = 350
 
-if rt < 300:
-    print("zu schnell – Trial ausschließen")
+if rt < 100:
+    print("zu schnell")
 elif rt < 600:
     print("gültig")
 else:
@@ -74,7 +74,7 @@ Python prüft die Bedingungen **von oben nach unten** und führt den ersten zutr
 
 > ❓ **Vorhersage:** Was gibt der Code für `rt = 299` aus? Für `rt = 600`?
 
-### 1.3 Vergleichsoperatoren
+### 1.3 Vergleichsoperatoren: liefern True / False
 
 | Operator | Bedeutung | Experimenteller Kontext |
 |---|---|---|
@@ -82,8 +82,8 @@ Python prüft die Bedingungen **von oben nach unten** und führt den ersten zutr
 | `!=` | ungleich | falsche Antwort gedrückt |
 | `>` | größer als | RT überschreitet Cutoff |
 | `<` | kleiner als | RT unterschreitet Cutoff |
-| `>=` | größer oder gleich | Mindest-Accuracy erreicht |
-| `<=` | kleiner oder gleich | maximale RT eingehalten |
+| `>=` | größer oder gleich | maximaler Cutoff erreicht |
+| `<=` | kleiner oder gleich | minimaler Cutoff eingehalten |
 
 > ⚠️ **Häufiger Fehler:** `=` ist Zuweisung, `==` ist Vergleich.
 > ```python
@@ -114,6 +114,39 @@ if rt < 200 or rt > 1000:
 
 > 💡 `korrekt` ist bereits ein `bool` – Sie müssen nicht `korrekt == True` schreiben.  
 > `if korrekt:` reicht völlig.
+
+```python
+korrekt = True
+
+if not korrekt: # if not True
+    print("ungültig")
+else:
+    print("gültig")
+
+```
+
+### 1.5 Arithmetische Operatoren: liefert einen Wert
+
+Neben den Vergleichsoperatoren gibt es noch arithmetische Operatoren.
+
+| Operator | Bedeutung | Beispiel |
+|---|---|---|
+| `+` | Addition: Addiert zwei Werte | `5 + 3 = 8` |
+| `-` | Subtraktion: Subtrahiert den rechten vom linken Wert | `5 - 3 = 2` |
+| `*` | Multiplikation: Multipliziert zwei Werte | `4 * 3 = 12` |
+| `/` | Division: Dividiert, liefert immer eine Gleitkommazahl | `10 / 5 = 2.0` |
+| `//` | Ganzzahlige Division: Dividiert und rundet das Ergebnis auf die nächste ganze Zahl ab | `10 // 3 = 3` |
+| `%` | Modulo: Gibt den Rest einer Division zurück | `10 % 3 = 1` |
+| `**` | Potenzierung | `4 ** 2 = 16` |
+
+Hinweise zur Verwendung:
+> `/` liefert immer einen Float.
+> `//` rundet immer ab.
+> `%` ist **besonders nützlich**, z.B. um zu prüfen, ob eine Zahl gerade ist: `VP % 2 == 0`
+> **Operatoren-Rangfolge**: Es gilt "Punkt- vor Strichrechnung" (`*, /, //, % vor +, -`)
+> **Strings**: Der `+` Operator kann Strings verbinden, `*` kann sie wiederholen.
+> Zuweisungsoperatoren können verbunden werden, z.B. x += 1 ist dasselbe wie x = x + 1
+
 
 ---
 
@@ -167,6 +200,7 @@ stimuli = ["Haus", "Baum", "Auto"]
 
 for i, stimulus in enumerate(stimuli):
     print(f"Trial {i + 1}: {stimulus}")
+    print("Trial " + i + 1 +  ": " + stimulus) # Alternative Schreibweise
 ```
 
 ```
@@ -209,18 +243,18 @@ for stimulus, reaktionszeit, korrekt in trials:
 
 Das ist der Kern jeder Experimentlogik.
 
-### 3.1 Reaktionen automatisch auswerten
+### 3.1 Bedingungen automatisch zuweisen
 
 ```python
-reaktionszeiten = [512, 245, 789, 380, 1050, 298]
+trainingstrial = ["Haus", "Baum", "Ast"]
+experimenttrial = ["Elefant", "Schmetterling", "Ameisenbär"]
+experiment = trainingstrial + experimenttrial
 
-for rt in reaktionszeiten:
-    if rt < 300:
-        print(f"{rt} ms → zu schnell, ausschließen")
-    elif rt > 1000:
-        print(f"{rt} ms → zu langsam, ausschließen")
+for each in experiment:
+    if len(each) <= 5:
+        print("einsilbig")
     else:
-        print(f"{rt} ms → gültig")
+        print("mehrsilbig")
 ```
 
 ### 3.2 Treffer zählen
@@ -269,12 +303,12 @@ print(f"Accuracy: {accuracy:.0%}")   # → "75%"
 
 Schreiben Sie eine Bedingung, die für `rt = 720` eine Rückmeldung ausgibt:
 
-- `rt < 200` → `"zu schnell – ausschließen"`
+- `rt < 100` → `"zu schnell – ausschließen"`
 - `rt < 600` → `"gültig"`
 - sonst → `"zu langsam – ausschließen"`
 
 Testen Sie anschließend mit `rt = 150`, `rt = 450` und `rt = 800`.  
-Was passiert genau an der Grenze `rt = 200` und `rt = 600`?
+Was passiert genau an der Grenze `rt = 100` und `rt = 600`?
 
 ```python
 rt = 720
@@ -502,7 +536,7 @@ print(treffer)
 <summary>Aufgabe 1 – Reaktionsbewertung</summary>
 
 <pre><code class="language-python">rt = 720
-if rt < 200:
+if rt < 100:
     print("zu schnell – ausschließen")
 elif rt < 600:
     print("gültig")
@@ -510,7 +544,7 @@ else:
     print("zu langsam – ausschließen")
 </code></pre>
 
-An der Grenze `rt = 200`: Die erste Bedingung `rt < 200` ist `False` (200 ist nicht kleiner als 200),
+An der Grenze `rt = 100`: Die erste Bedingung `rt < 100` ist `False` (100 ist nicht kleiner als 100),
 also greift `elif rt < 600` → Ausgabe: `"gültig"`.
 An der Grenze `rt = 600`: Beide ersten Bedingungen sind `False`, also `else` → `"zu langsam"`.
 
