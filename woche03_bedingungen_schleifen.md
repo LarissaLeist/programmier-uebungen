@@ -139,13 +139,14 @@ Neben den Vergleichsoperatoren gibt es noch arithmetische Operatoren.
 | `%` | Modulo: Gibt den Rest einer Division zurück | `10 % 3 = 1` |
 | `**` | Potenzierung | `4 ** 2 = 16` |
 
-Hinweise zur Verwendung:
-> `/` liefert immer einen Float.
-> `//` rundet immer ab.
-> `%` ist **besonders nützlich**, z.B. um zu prüfen, ob eine Zahl gerade ist: `VP % 2 == 0`
-> **Operatoren-Rangfolge**: Es gilt "Punkt- vor Strichrechnung" (`*, /, //, % vor +, -`)
-> **Strings**: Der `+` Operator kann Strings verbinden, `*` kann sie wiederholen.
-> Zuweisungsoperatoren können verbunden werden, z.B. x += 1 ist dasselbe wie x = x + 1
+> 💡 Hinweise zur Verwendung:
+
+-  `/` liefert immer einen Float.
+-  `//` rundet immer ab.
+-  `%` ist **besonders nützlich**, z.B. um zu prüfen, ob eine Zahl gerade ist: `VP % 2 == 0`
+-  **Operatoren-Rangfolge**: Es gilt "Punkt- vor Strichrechnung" (`*, /, //, % vor +, -`)
+-  **Strings**: Der `+` Operator kann Strings verbinden, `*` kann sie wiederholen.
+-  Zuweisungsoperatoren können verbunden werden, z.B. x += 1 ist dasselbe wie x = x + 1
 
 
 ---
