@@ -18,12 +18,13 @@ Jede Woche enthält:
 
 ## Inhalte
 
-- [Woche 1](woche1.html)
-- [Woche 1 in Colab öffnen](https://colab.research.google.com/drive/1TwjsH7Vfq8q27BesvJgrsBPZ_8a9K3nc#scrollTo=XZX5amN4Tcvj)
-- [Woche 2](woche02_sequenzen.html)
-- [Woche 3](woche03_bedingungen_schleifen.html)
-- [Woche 3 in Colab öffnen: Grüße von Hans](https://colab.research.google.com/drive/1d9zmzy6SWuGkLrBP7MHPr6WM0waA6V2-?usp=sharing)
-- Hinweis zu Colab: Sie können oben auf "In Google Drive" ("Copy to Drive") klicken, um eine Kopie des Notebooks in den eigenen Account zu erstellen und dann dieses Notebook für sich bearbeiten.
-- [Exkurs Stroop-Aufgabe in Colab öffnen](https://colab.research.google.com/drive/143ZIPilbDIWH8MyAaxCD8uBgk3wJwygZ)
-- [Woche 4](woche04_funktionen_colab.html)
-- [Woche 4 in Colab öffnen](woche04_funktionen_colab.hmtl)
+> 💡 **Hinweis zu Colab:** Klicken Sie oben auf „Copy to Drive", um eine eigene Kopie 
+> zu erstellen und das Notebook bearbeiten zu können.
+
+| Woche | Thema | Materialien |
+|-------|-------|-------------|
+| 1 | Einführung | [Skript](woche1.html) · [Colab öffnen](https://colab.research.google.com/drive/1TwjsH7Vfq8q27BesvJgrsBPZ_8a9K3nc#scrollTo=XZX5amN4Tcvj) |
+| 2 | Sequenzen | [Skript](woche02_sequenzen.html) |
+| 3 | Bedingungen & Schleifen | [Skript](woche03_bedingungen_schleifen.html) · [Colab öffnen: Grüße von Hans](https://colab.research.google.com/drive/1d9zmzy6SWuGkLrBP7MHPr6WM0waA6V2-?usp=sharing) |
+| 4 | Exkurs: Stroop-Aufgabe | [Colab öffnen](https://colab.research.google.com/drive/143ZIPilbDIWH8MyAaxCD8uBgk3wJwygZ) |
+| 4 | Funktionen | [Skript](woche04_funktionen_colab.html) · [Colab öffnen](https://colab.research.google.com/drive/1x_Xdq5rv2BlMwoGvWOHbLh1cyCktYUMk) |
