@@ -4,8 +4,8 @@ Dieses Repository begleitet das Seminar *Programmierung für Laborexperimenten* 
 Es enthält wöchentliche Lernmaterialien, Codebeispiele, Übungsaufgaben und Mini‑Projekte.
 
 ## Struktur
-- **Wochen 1–4:** Python‑Grundlagen  
-- **Wochen 5–9:** PsychoPy für Experimente  
+- **Wochen 1–6:** Python‑Grundlagen  
+- **Wochen 7–13:** PsychoPy für Experimente  
 
 Jede Woche enthält:
 - Lernziele  
