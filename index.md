@@ -27,4 +27,4 @@ Jede Woche enthält:
 | 2 | Sequenzen | [Skript](woche02_sequenzen.html) |
 | 3 | Bedingungen & Schleifen | [Skript](woche03_bedingungen_schleifen.html) · [Colab öffnen: Grüße von Hans](https://colab.research.google.com/drive/1d9zmzy6SWuGkLrBP7MHPr6WM0waA6V2-?usp=sharing) |
 | 4 | Exkurs: Stroop-Aufgabe | [Colab öffnen](https://colab.research.google.com/drive/143ZIPilbDIWH8MyAaxCD8uBgk3wJwygZ) |
-| 4 | Funktionen | [Skript](woche04_funktionen_colab.html) · [Colab öffnen](https://colab.research.google.com/drive/1x_Xdq5rv2BlMwoGvWOHbLh1cyCktYUMk) |
+| 4 | Funktionen | [Skript](woche04_funktionen.html) · [Colab öffnen](https://colab.research.google.com/drive/1x_Xdq5rv2BlMwoGvWOHbLh1cyCktYUMk) |
