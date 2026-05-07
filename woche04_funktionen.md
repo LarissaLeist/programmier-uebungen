@@ -653,7 +653,6 @@ print(trial["stimulus"])   # → "Haus"
 print(trial["rt"])         # → 512
 ```
 
-Und Sie sehen, warum Aufgabe 8 das Ergebnis bereits als Dictionary zurückgegeben hat.
 
 ---
 
@@ -662,8 +661,6 @@ Und Sie sehen, warum Aufgabe 8 das Ergebnis bereits als Dictionary zurückgegebe
 
 <details>
 <summary>Lösung Aufgabe 1</summary>
-
-### Lösung anzeigen
 
 ```python
 def begruessung(vp_id):
@@ -674,13 +671,13 @@ begruessung("VP01")
 begruessung("VP02")
 begruessung("VP03")
 ```
+
 </details>
 
 ---
 
 <details>
 <summary>Lösung Aufgabe 2</summary>
-
 
 ```python
 ergebnis_a = version_a(100)   # gibt 200 aus (durch print)
@@ -693,6 +690,7 @@ print(ergebnis_b)              # gibt 200 aus
 print(version_b(100) + 50)    # → 250
 # print(version_a(100) + 50)  # → TypeError: NoneType + int
 ```
+
 </details>
 
 ---
@@ -714,6 +712,7 @@ print(bewerte_rt(512))    # → gültig
 print(bewerte_rt(1000))   # → gültig
 print(bewerte_rt(1200))   # → zu langsam
 ```
+
 </details>
 
 ---
@@ -735,6 +734,7 @@ print(bewerte_rt(450, untere_grenze=150))    # → gültig
 print(bewerte_rt(450, 150, 800))             # → gültig
 print(bewerte_rt(850, 150, 800))             # → zu langsam
 ```
+
 </details>
 
 ---
@@ -758,6 +758,7 @@ def verarbeite_trial(stimulus, rt, korrekt):
 for stimulus, rt, korrekt in trials:
     verarbeite_trial(stimulus, rt, korrekt)
 ```
+
 </details>
 
 ---
@@ -778,6 +779,7 @@ def berechne_accuracy(trials):
 print(f"Block 1: {berechne_accuracy(block_1):.0%}")   # → 67%
 print(f"Block 2: {berechne_accuracy(block_2):.0%}")   # → 100%
 ```
+
 </details>
 
 ---
@@ -804,6 +806,7 @@ print(f"Trials ausgeschlossen: {ausgeschlossen}")
 print(f"Trials gültig:         {len(gefiltert)}")
 print(f"Accuracy (gefiltert):  {berechne_accuracy(gefiltert):.0%}")
 ```
+
 </details>
 
 ---
@@ -845,6 +848,7 @@ print(f"RT inkongruent: {ergebnis['rt_inkongruent']:.0f} ms")
 print(f"Stroop-Effekt:  {ergebnis['stroop_effekt']:.0f} ms")
 print(f"Accuracy:       {ergebnis['accuracy']:.0%}")
 ```
+
 </details>
 
 ---
@@ -877,4 +881,5 @@ def setze_wert():
 mein_wert = setze_wert()
 print(mein_wert)   # → 99
 ```
+
 </details>
