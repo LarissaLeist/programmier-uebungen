@@ -28,3 +28,4 @@ Jede Woche enthält:
 | 3 | Bedingungen & Schleifen | [Skript](woche03_bedingungen_schleifen.html) · [Colab öffnen: Grüße von Hans](https://colab.research.google.com/drive/1d9zmzy6SWuGkLrBP7MHPr6WM0waA6V2-?usp=sharing) |
 | 4 | Exkurs: Stroop-Aufgabe | [Colab öffnen](https://colab.research.google.com/drive/143ZIPilbDIWH8MyAaxCD8uBgk3wJwygZ) |
 | 4 | Funktionen | [Skript](woche04_funktionen.html) · [Colab öffnen](https://colab.research.google.com/drive/1x_Xdq5rv2BlMwoGvWOHbLh1cyCktYUMk) |
+| 5 | Module & PsychoPy | [Skript](woche05_module_psychopy.html) · [Colab öffnen](https://colab.research.google.com/github/LarissaLeist/programmier-uebungen/blob/main/woche05_module_psychopy_colab.ipynb) |
