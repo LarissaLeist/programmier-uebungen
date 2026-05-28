@@ -648,9 +648,11 @@ fenster.close()
 ## Lösungen
 
 <details>
+  
 <summary>Aufgabe 1 – Modul-Syntax</summary>
 
 ```python
+
 # (1) ganzes Modul
 import random
 print(random.randint(1, 10))
@@ -666,9 +668,11 @@ import pathlib as pl
 pfad = pl.Path("daten") / "vp01.csv"
 print(pfad)
 ```
+
 </details>
 
 <details>
+  
 <summary>Aufgabe 2 – Randomisierung mit Seed</summary>
 
 Mit `random.seed(7)` ist die Reihenfolge bei jedem Aufruf gleich.  
@@ -678,9 +682,11 @@ In einem Experiment braucht man `seed()`, um:
 - Ergebnisse reproduzieren zu können
 - Nachträglich überprüfen zu können, welche Trialreihenfolge VP X hatte
 - Pre-registered Designs umzusetzen
+- 
 </details>
 
 <details>
+  
 <summary>Aufgabe 3 – choice und sample</summary>
 
 ```python
@@ -691,9 +697,11 @@ print(random.choice(woerter))             # ein zufälliges Wort
 print(random.sample(woerter, k=3))        # drei ohne Zurücklegen
 random.sample(woerter, k=10)              # → ValueError: Sample larger than population
 ```
+
 </details>
 
 <details>
+  
 <summary>Aufgabe 4 – Trialliste</summary>
 
 ```python
@@ -702,15 +710,22 @@ import random
 SEED   = 99
 farben = ["rot", "blau", "grün"]
 
-kongruent   = [(f.upper(), f) for f in farben for _ in range(4)]
-inkongruent = [(f.upper(), g) for f in farben for g in farben if f != g]
-# inkongruent hat 6 Kombinationen × ... hier vereinfacht:
+kongruent = []
+for f in farben:  # ich gehe nacheinander durch alle Farben der Liste "farben"    
+    for i in range(4):  # das wiederhole ich viermal        
+        # ich füge der Liste "kongruent" ein Tupel hinzu:
+        # (großgeschriebenes Wort, passende Farbe)
+        kongruent.append((f.upper(), f))
+
 inkongruent = []
-for wort_farbe in farben:
-    for schrift_farbe in farben:
-        if wort_farbe != schrift_farbe:
-            for _ in range(2):   # je 2 Wiederholungen
-                inkongruent.append((wort_farbe.upper(), schrift_farbe))
+for w in farben:  # w steht für das Wort    
+    for f in farben:  # f steht für die Schriftfarbe        
+        if w != f:  # nur wenn Wort und Farbe verschieden sind            
+            for i in range(2):  # jede Kombination wird zweimal eingefügt
+                
+                # ich füge der Liste "inkongruent" ein Tupel hinzu:
+                # (großgeschriebenes Wort, nicht passende Farbe)
+                inkongruent.append((w.upper(), f))
 
 trials = kongruent + inkongruent
 random.seed(SEED)
@@ -720,9 +735,11 @@ print(f"Trials gesamt: {len(trials)}")
 for t in trials[:5]:
     print(t)
 ```
+
 </details>
 
 <details>
+  
 <summary>Aufgabe 5 – Logfile anlegen</summary>
 
 ```python
@@ -739,10 +756,13 @@ def erstelle_logfile(vp_id, aufgabe):
         writer.writerow(["trial", "wort", "farbe", "antwort", "korrekt", "rt_ms"])
     return pfad
 ```
+
 </details>
 
 <details>
+  
 <summary>Aufgabe 6 – Trial speichern</summary>
+
 
 ```python
 import csv
@@ -760,10 +780,14 @@ def speichere_trial(logfile_pfad, trial_daten):
             trial_daten["rt_ms"],
         ])
 ```
+
 </details>
 
+
 <details>
+  
 <summary>Aufgabe 7 – Volle Pipeline</summary>
+
 
 ```python
 import random
@@ -806,9 +830,11 @@ print(f"Accuracy:    {korrekt_n/len(trials):.0%}")
 print(f"Mittlere RT: {rt_summe/len(trials):.0f} ms")
 print(f"Logfile:     {pfad}")
 ```
+
 </details>
 
 <details>
+  
 <summary>Aufgabe 8 – PsychoPy lesen</summary>
 
 ```
@@ -828,6 +854,7 @@ print(f"Logfile:     {pfad}")
    korrekt = (tasten[0] == erwartete_taste)
    Die erwartete Taste hängt von der korrekten Farbe ab.
 ```
+
 </details>
 
 ---
