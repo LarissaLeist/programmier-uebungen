@@ -662,15 +662,14 @@ print(trial["rt"])         # → 512
 <details>
 <summary>Lösung Aufgabe 1</summary>
 
-```python
-def begruessung(vp_id):
+<pre><code class="language-python">def begruessung(vp_id):
     print(f"Willkommen, {vp_id}!")
     print("Das Experiment beginnt gleich.")
 
 begruessung("VP01")
 begruessung("VP02")
 begruessung("VP03")
-```
+</code></pre>
 
 </details>
 
@@ -679,8 +678,7 @@ begruessung("VP03")
 <details>
 <summary>Lösung Aufgabe 2</summary>
 
-```python
-ergebnis_a = version_a(100)   # gibt 200 aus (durch print)
+<pre><code class="language-python">ergebnis_a = version_a(100)   # gibt 200 aus (durch print)
 print(ergebnis_a)              # gibt None aus – print() gibt nichts zurück!
 
 ergebnis_b = version_b(100)   # keine Ausgabe
@@ -689,7 +687,7 @@ print(ergebnis_b)              # gibt 200 aus
 # Nur version_b funktioniert:
 print(version_b(100) + 50)    # → 250
 # print(version_a(100) + 50)  # → TypeError: NoneType + int
-```
+</code></pre>
 
 </details>
 
@@ -698,8 +696,7 @@ print(version_b(100) + 50)    # → 250
 <details>
 <summary>Lösung Aufgabe 3</summary>
 
-```python
-def bewerte_rt(rt):
+<pre><code class="language-python">def bewerte_rt(rt):
     if rt < 200:
         return "zu schnell"
     if rt > 1000:
@@ -711,7 +708,7 @@ print(bewerte_rt(200))    # → gültig
 print(bewerte_rt(512))    # → gültig
 print(bewerte_rt(1000))   # → gültig
 print(bewerte_rt(1200))   # → zu langsam
-```
+</code></pre>
 
 </details>
 
@@ -720,9 +717,7 @@ print(bewerte_rt(1200))   # → zu langsam
 <details>
 <summary>Lösung Aufgabe 4</summary>
 
-
-```python
-def bewerte_rt(rt, untere_grenze=200, obere_grenze=1000):
+<pre><code class="language-python">def bewerte_rt(rt, untere_grenze=200, obere_grenze=1000):
     if rt < untere_grenze:
         return "zu schnell"
     if rt > obere_grenze:
@@ -733,7 +728,7 @@ print(bewerte_rt(450))                       # → gültig
 print(bewerte_rt(450, untere_grenze=150))    # → gültig
 print(bewerte_rt(450, 150, 800))             # → gültig
 print(bewerte_rt(850, 150, 800))             # → zu langsam
-```
+</code></pre>
 
 </details>
 
@@ -742,8 +737,7 @@ print(bewerte_rt(850, 150, 800))             # → zu langsam
 <details>
 <summary>Lösung Aufgabe 5</summary>
 
-```python
-def bewerte_rt(rt):
+<pre><code class="language-python">def bewerte_rt(rt):
     if rt < 200:
         return "zu schnell"
     if rt > 1000:
@@ -757,7 +751,7 @@ def verarbeite_trial(stimulus, rt, korrekt):
 
 for stimulus, rt, korrekt in trials:
     verarbeite_trial(stimulus, rt, korrekt)
-```
+</code></pre>
 
 </details>
 
@@ -766,8 +760,7 @@ for stimulus, rt, korrekt in trials:
 <details>
 <summary>Lösung Aufgabe 6</summary>
 
-```python
-def berechne_accuracy(trials):
+<pre><code class="language-python">def berechne_accuracy(trials):
     if len(trials) == 0:
         return 0.0
     korrekt_n = 0
@@ -778,7 +771,7 @@ def berechne_accuracy(trials):
 
 print(f"Block 1: {berechne_accuracy(block_1):.0%}")   # → 67%
 print(f"Block 2: {berechne_accuracy(block_2):.0%}")   # → 100%
-```
+</code></pre>
 
 </details>
 
@@ -787,8 +780,7 @@ print(f"Block 2: {berechne_accuracy(block_2):.0%}")   # → 100%
 <details>
 <summary>Lösung Aufgabe 7</summary>
 
-```python
-def ist_gueltiger_trial(rt):
+<pre><code class="language-python">def ist_gueltiger_trial(rt):
     return 200 <= rt <= 1000
 
 def filtere_trials(trials):
@@ -805,7 +797,7 @@ print(f"Trials gesamt:         {len(rohdaten)}")
 print(f"Trials ausgeschlossen: {ausgeschlossen}")
 print(f"Trials gültig:         {len(gefiltert)}")
 print(f"Accuracy (gefiltert):  {berechne_accuracy(gefiltert):.0%}")
-```
+</code></pre>
 
 </details>
 
@@ -814,8 +806,7 @@ print(f"Accuracy (gefiltert):  {berechne_accuracy(gefiltert):.0%}")
 <details>
 <summary>Lösung Aufgabe 8</summary>
 
-```python
-def stroop_auswertung(trials):
+<pre><code class="language-python">def stroop_auswertung(trials):
     rt_kongr_sum   = 0
     rt_inkongr_sum = 0
     n_kongr        = 0
@@ -847,7 +838,7 @@ print(f"RT kongruent:   {ergebnis['rt_kongruent']:.0f} ms")
 print(f"RT inkongruent: {ergebnis['rt_inkongruent']:.0f} ms")
 print(f"Stroop-Effekt:  {ergebnis['stroop_effekt']:.0f} ms")
 print(f"Accuracy:       {ergebnis['accuracy']:.0%}")
-```
+</code></pre>
 
 </details>
 
@@ -856,8 +847,7 @@ print(f"Accuracy:       {ergebnis['accuracy']:.0%}")
 <details>
 <summary>Lösung Aufgabe 9</summary>
 
-```python
-# (a) return fehlt
+<pre><code class="language-python"># (a) return fehlt
 def verdopple_rt(rt):
     return rt * 2
 
@@ -880,6 +870,6 @@ def setze_wert():
 
 mein_wert = setze_wert()
 print(mein_wert)   # → 99
-```
+</code></pre>
 
 </details>
