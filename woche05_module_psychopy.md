@@ -682,7 +682,6 @@ In einem Experiment braucht man `seed()`, um:
 
 </details>
 
-<details>
   
 <details>
 <summary>Aufgabe 3 – choice und sample</summary>
@@ -728,7 +727,6 @@ for t in trials[:5]:
 
 </details>
 
-<details>
   
 <details>
 <summary>Aufgabe 5 – Logfile anlegen</summary>
@@ -749,7 +747,6 @@ def erstelle_logfile(vp_id, aufgabe):
 
 </details>
 
-<details>
   
 <details>
 <summary>Aufgabe 6 – Trial speichern</summary>
