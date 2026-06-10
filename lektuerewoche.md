@@ -171,7 +171,7 @@ stimulus = visual.TextStim(     # ___________________________________________
 <details>
 <summary>Musterlösung</summary>
 
-```python
+~~~python
 fenster = visual.Window(        # Ein Grafikfenster wird erstellt
     size=(1024, 768),           # Größe: 1024 Pixel breit, 768 hoch
     fullscr=VOLLBILD,           # Vollbildmodus an/aus (hier False)
@@ -179,7 +179,6 @@ fenster = visual.Window(        # Ein Grafikfenster wird erstellt
     units="pix"                 # Koordinaten in Pixeln angeben
 )
 uhr = core.Clock()              # Zeituhr für Reaktionszeitmessung erstellen
-
 fixation = visual.TextStim(     # Fixationskreuz-Objekt erstellen
     win=fenster,                # in dieses Fenster zeichnen
     text="+",                   # Text: Pluszeichen als Fixationspunkt
@@ -192,12 +191,13 @@ stimulus = visual.TextStim(     # Pfeil-Stimulus-Objekt erstellen
     color="white",
     height=80
 )
-```
+~~~
 
 **Antworten:**
 1. `stimulus.text=""` weil der konkrete Pfeiltext erst in der Trial-Schleife gesetzt wird (`stimulus.setText(...)`). Das Objekt wird einmal erstellt und immer wieder befüllt – das ist effizienter als jedes Mal ein neues Objekt zu erzeugen.
 2. `units="pix"` bedeutet, Positionen und Größen werden in Bildschirmpixeln angegeben. Alternativ: `"norm"` (−1 bis +1), `"deg"` (Sehwinkelgrad), `"cm"`.
 3. `core.Clock()` erzeugt die Uhr. Gestartet (auf 0 zurückgesetzt) wird sie erst mit `uhr.reset()` – direkt bevor `fenster.flip()` den Stimulus auf den Bildschirm bringt.
+
 </details>
 
 ---
