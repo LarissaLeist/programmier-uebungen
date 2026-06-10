@@ -193,10 +193,12 @@ stimulus = visual.TextStim(     # Pfeil-Stimulus-Objekt erstellen
 )
 </code></pre>
 
-**Antworten:**
-1. `stimulus.text=""` weil der konkrete Pfeiltext erst in der Trial-Schleife gesetzt wird (`stimulus.setText(...)`). Das Objekt wird einmal erstellt und immer wieder befüllt – das ist effizienter als jedes Mal ein neues Objekt zu erzeugen.
-2. `units="pix"` bedeutet, Positionen und Größen werden in Bildschirmpixeln angegeben. Alternativ: `"norm"` (−1 bis +1), `"deg"` (Sehwinkelgrad), `"cm"`.
-3. `core.Clock()` erzeugt die Uhr. Gestartet (auf 0 zurückgesetzt) wird sie erst mit `uhr.reset()` – direkt bevor `fenster.flip()` den Stimulus auf den Bildschirm bringt.
+<p><strong>Antworten:</strong></p>
+<ol>
+<li><code>stimulus.text=""</code> weil der konkrete Pfeiltext erst in der Trial-Schleife gesetzt wird (<code>stimulus.setText(...)</code>). Das Objekt wird einmal erstellt und immer wieder befüllt – das ist effizienter als jedes Mal ein neues Objekt zu erzeugen.</li>
+<li><code>units="pix"</code> bedeutet, Positionen und Größen werden in Bildschirmpixeln angegeben. Alternativ: <code>"norm"</code> (−1 bis +1), <code>"deg"</code> (Sehwinkelgrad), <code>"cm"</code>.</li>
+<li><code>core.Clock()</code> erzeugt die Uhr. Gestartet (auf 0 zurückgesetzt) wird sie erst mit <code>uhr.reset()</code> – direkt bevor <code>fenster.flip()</code> den Stimulus auf den Bildschirm bringt.</li>
+</ol>
 
 </details>
 
@@ -283,17 +285,17 @@ _______________________________________________________________
 <details>
 <summary>Musterlösung</summary>
 
+<p><strong>Aufgabe B:</strong><br>
+Die Schleife iteriert über alle Trials. Bei jedem Trial erscheint zuerst ein Fixationskreuz für 0,5 Sekunden. Dann wird der Pfeil-Stimulus gesetzt und angezeigt; gleichzeitig wird die Reaktionsuhr auf null zurückgesetzt. Das Experiment wartet maximal 2 Sekunden auf eine Taste (F, J oder Escape). Nach dem Tastendruck wird geprüft, ob die Antwort korrekt war, und die Reaktionszeit in Millisekunden umgerechnet.</p>
 
-**Aufgabe B:**  
-Die Schleife iteriert über alle Trials. Bei jedem Trial erscheint zuerst ein Fixationskreuz für 0,5 Sekunden. Dann wird der Pfeil-Stimulus gesetzt und angezeigt; gleichzeitig wird die Reaktionsuhr auf null zurückgesetzt. Das Experiment wartet maximal 2 Sekunden auf eine Taste (F, J oder Escape). Nach dem Tastendruck wird geprüft, ob die Antwort korrekt war, und die Reaktionszeit in Millisekunden umgerechnet.
-
-**Aufgabe C:**
-1. Die Uhr würde die Zeit **ab dem flip()** messen statt ab dem Moment kurz davor. Da `flip()` bis zum nächsten Bildschirm-Refresh wartet (1 Frame ≈ 16 ms bei 60 Hz), würde die gemessene RT systematisch zu kurz sein.
-2. Erstes `flip()`: Das Fixationskreuz erscheint. Zweites `flip()`: Der Pfeil-Stimulus erscheint (und die Uhr startet gleichzeitig).
-3. `None` – wenn kein Tastendruck innerhalb von `maxWait` erfolgt.
-4. `bool` (`True` oder `False`). `(antwort == korrekte_taste)` ist ein Vergleichsausdruck, der direkt einen bool-Wert zurückgibt – ein `if/else` wäre redundant.
-5. PsychoPy misst Zeit in Sekunden als Dezimalzahl (z. B. 0.4123). Für Psychologie-Daten ist Millisekunden üblich und `round()` entfernt unnötige Nachkommastellen.
-
+<p><strong>Aufgabe C:</strong></p>
+<ol>
+<li>Die Uhr würde die Zeit <strong>ab dem flip()</strong> messen statt ab dem Moment kurz davor. Da <code>flip()</code> bis zum nächsten Bildschirm-Refresh wartet (1 Frame ≈ 16 ms bei 60 Hz), würde die gemessene RT systematisch zu kurz sein.</li>
+<li>Erstes <code>flip()</code>: Das Fixationskreuz erscheint. Zweites <code>flip()</code>: Der Pfeil-Stimulus erscheint (und die Uhr startet gleichzeitig).</li>
+<li><code>None</code> – wenn kein Tastendruck innerhalb von <code>maxWait</code> erfolgt.</li>
+<li><code>bool</code> (<code>True</code> oder <code>False</code>). <code>(antwort == korrekte_taste)</code> ist ein Vergleichsausdruck, der direkt einen bool-Wert zurückgibt – ein <code>if/else</code> wäre redundant.</li>
+<li>PsychoPy misst Zeit in Sekunden als Dezimalzahl (z. B. 0.4123). Für Psychologie-Daten ist Millisekunden üblich und <code>round()</code> entfernt unnötige Nachkommastellen.</li>
+</ol>
 
 </details>
 
@@ -442,32 +444,39 @@ Korrektur: _________________________________________________________
 <details>
 <summary>Musterlösung</summary>
 
-**Aufgabe A – Zeilenbereiche (ungefähr):**
+<p><strong>Aufgabe A – Zeilenbereiche (ungefähr):</strong></p>
+<table>
+<thead><tr><th>Abschnitt</th><th>Inhalt</th></tr></thead>
+<tbody>
+<tr><td>Imports</td><td><code>from psychopy import ...</code> bis <code>from pathlib import Path</code></td></tr>
+<tr><td>Konfiguration</td><td><code>VP_ID = ...</code> bis <code>FIXDAUER = ...</code></td></tr>
+<tr><td>Trialliste</td><td><code>TRIALS = [...]</code></td></tr>
+<tr><td>Logfile-Setup</td><td><code>Path("logfiles").mkdir(...)</code> bis <code>csv.writer(f).writerow(...)</code></td></tr>
+<tr><td>Fenster &amp; Stimuli</td><td><code>fenster = visual.Window(...)</code> bis <code>instruktion = visual.TextStim(...)</code></td></tr>
+<tr><td>Instruktion</td><td><code>instruktion.draw()</code> bis <code>event.waitKeys(keyList=["space"])</code></td></tr>
+<tr><td>Trial-Schleife</td><td><code>for trial_nr, ...</code> bis letztes <code>csv.writer(f).writerow(...)</code></td></tr>
+<tr><td>Abschluss</td><td><code>fenster.close()</code> + <code>core.quit()</code></td></tr>
+</tbody>
+</table>
 
-| Abschnitt | Inhalt |
-|---|---|
-| Imports | `from psychopy import ...` bis `from pathlib import Path` |
-| Konfiguration | `VP_ID = ...` bis `FIXDAUER = ...` |
-| Trialliste | `TRIALS = [...]` |
-| Logfile-Setup | `Path("logfiles").mkdir(...)` bis `csv.writer(f).writerow(...)` |
-| Fenster & Stimuli | `fenster = visual.Window(...)` bis `instruktion = visual.TextStim(...)` |
-| Instruktion | `instruktion.draw()` bis `event.waitKeys(keyList=["space"])` |
-| Trial-Schleife | `for trial_nr, ...` bis letztes `csv.writer(f).writerow(...)` |
-| Abschluss | `fenster.close()` + `core.quit()` |
+<p><strong>Aufgabe B:</strong></p>
+<ol>
+<li><code>4 Trials × 5 = 20 Trials</code> gesamt. Davon 2 kongruente × 5 = <strong>10 kongruente</strong>, 10 inkongruente.</li>
+<li>Das Logfile wird angelegt, bevor das Fenster geöffnet wird – so ist sichergestellt, dass die Datei existiert, falls das Experiment abstürzt oder abgebrochen wird. Dateifehler (z. B. voller Speicher) werden früh erkannt, bevor die Versuchsperson schon Trials absolviert hat.</li>
+<li>Mögliche Änderungen für Stroop:
+<ul>
+<li>Stimulus-Text: Farbwörter statt Pfeil-Strings (<code>"ROT"</code>, <code>"BLAU"</code>, <code>"GRÜN"</code>)</li>
+<li><code>stimulus.setColor(farbe)</code> hinzufügen (die Schriftfarbe muss variieren)</li>
+<li>Antwort-Tasten: <code>keyList=["r", "b", "g"]</code> statt <code>["f", "j"]</code></li>
+<li>Instruktionstext anpassen: „Nennen Sie die Schriftfarbe"</li>
+<li><code>korrekte_taste</code> entspricht der Farbe statt der Richtung</li>
+</ul>
+</li>
+<li>Im Vollbildmodus hat PsychoPy exklusiven Zugriff auf den Bildschirm – das Betriebssystem kann keine anderen Fenster einblenden, die das Timing stören. Vollbild vermindert auch Monitor-Refresh-Jitter. Für echte Experimente ist präzises Timing entscheidend.</li>
+</ol>
 
-**Aufgabe B:**
-1. `4 Trials × 5 = 20 Trials` gesamt. Davon 2 kongruente × 5 = **10 kongruente**, 10 inkongruente.
-2. Das Logfile wird angelegt, bevor das Fenster geöffnet wird – so ist sichergestellt, dass die Datei existiert, falls das Experiment abstürzt oder abgebrochen wird. Dateifehler (z. B. voller Speicher) werden früh erkannt, bevor die Versuchsperson schon Trials absolviert hat.
-3. Mögliche Änderungen für Stroop:
-   - Stimulus-Text: Farbwörter statt Pfeil-Strings (`"ROT"`, `"BLAU"`, `"GRÜN"`)
-   - `stimulus.setColor(farbe)` hinzufügen (die Schriftfarbe muss variieren)
-   - Antwort-Tasten: `keyList=["r", "b", "g"]` statt `["f", "j"]`
-   - Instruktionstext anpassen: „Nennen Sie die Schriftfarbe"
-   - `korrekte_taste` entspricht der Farbe statt der Richtung
-4. Im Vollbildmodus hat PsychoPy exklusiven Zugriff auf den Bildschirm – das Betriebssystem kann keine anderen Fenster einblenden, die das Timing stören. Vollbild vermindert auch Monitor-Refresh-Jitter. Für echte Experimente ist präzises Timing entscheidend.
-
-**Aufgabe C – Fehler:**  
-Der Fehler liegt in der Reihenfolge von `fenster.flip()` und `uhr.reset()`:
+<p><strong>Aufgabe C – Fehler:</strong><br>
+Der Fehler liegt in der Reihenfolge von <code>fenster.flip()</code> und <code>uhr.reset()</code>:</p>
 
 <pre><code class="language-python"># Fehlerhaft (im obigen Skript):
 stimulus.draw()
@@ -480,11 +489,9 @@ uhr.reset()      # Uhr zurücksetzen
 fenster.flip()   # Stimulus erscheint → RT-Messung beginnt ab hier
 </code></pre>
 
-
-**Effekt:** Die gemessene RT ist um die Zeit verkürzt, die zwischen `flip()` und `uhr.reset()` vergeht – das ist kurz, aber systematisch und damit ein stiller Fehler.
+<p><strong>Effekt:</strong> Die gemessene RT ist um die Zeit verkürzt, die zwischen <code>flip()</code> und <code>uhr.reset()</code> vergeht – das ist kurz, aber systematisch und damit ein stiller Fehler.</p>
 
 </details>
-
 ---
 
 ## Zusammenfassung: Wie liest man fremden Code?
