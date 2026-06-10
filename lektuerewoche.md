@@ -283,6 +283,7 @@ _______________________________________________________________
 <details>
 <summary>Musterlösung</summary>
 
+
 **Aufgabe B:**  
 Die Schleife iteriert über alle Trials. Bei jedem Trial erscheint zuerst ein Fixationskreuz für 0,5 Sekunden. Dann wird der Pfeil-Stimulus gesetzt und angezeigt; gleichzeitig wird die Reaktionsuhr auf null zurückgesetzt. Das Experiment wartet maximal 2 Sekunden auf eine Taste (F, J oder Escape). Nach dem Tastendruck wird geprüft, ob die Antwort korrekt war, und die Reaktionszeit in Millisekunden umgerechnet.
 
@@ -292,6 +293,8 @@ Die Schleife iteriert über alle Trials. Bei jedem Trial erscheint zuerst ein Fi
 3. `None` – wenn kein Tastendruck innerhalb von `maxWait` erfolgt.
 4. `bool` (`True` oder `False`). `(antwort == korrekte_taste)` ist ein Vergleichsausdruck, der direkt einen bool-Wert zurückgibt – ein `if/else` wäre redundant.
 5. PsychoPy misst Zeit in Sekunden als Dezimalzahl (z. B. 0.4123). Für Psychologie-Daten ist Millisekunden üblich und `round()` entfernt unnötige Nachkommastellen.
+
+
 </details>
 
 ---
@@ -305,6 +308,7 @@ Die Schleife iteriert über alle Trials. Bei jedem Trial erscheint zuerst ein Fi
 > **Aufgabe C:** Im Skript steckt ein absichtlicher Fehler. Finden Sie ihn.
 
 ```python
+
 from psychopy import visual, core, event
 import csv
 from pathlib import Path
@@ -314,6 +318,8 @@ VOLLBILD   = False
 FENSTER_HG = "black"
 MAX_WART   = 2.0
 FIXDAUER   = 0.5
+
+TASTEN = {"left": "f", "right": "j"}   # ← neu
 
 TRIALS = [
     ("<<<<<", "left",  "kongruent"),
@@ -331,9 +337,9 @@ with open(logfile, mode="w", newline="", encoding="utf-8") as f:
 fenster = visual.Window(size=(1024, 768), fullscr=VOLLBILD,
                         color=FENSTER_HG, units="pix")
 uhr = core.Clock()
-fixation  = visual.TextStim(win=fenster, text="+", color="white", height=50)
-stimulus  = visual.TextStim(win=fenster, text="",  color="white", height=80)
-feedback  = visual.TextStim(win=fenster, text="",  color="white", height=40)
+fixation    = visual.TextStim(win=fenster, text="+", color="white", height=50)
+stimulus    = visual.TextStim(win=fenster, text="",  color="white", height=80)
+feedback    = visual.TextStim(win=fenster, text="",  color="white", height=40)
 instruktion = visual.TextStim(
     win=fenster,
     text="Reagieren Sie auf den MITTLEREN Pfeil.\n"
@@ -353,8 +359,8 @@ for trial_nr, (stim_text, korrekte_taste, bedingung) in enumerate(TRIALS, start=
 
     stimulus.setText(stim_text)
     stimulus.draw()
-    fenster.flip()          # ← hier könnte etwas fehlen
-    uhr.reset()
+    uhr.reset()             # ← vor flip, damit RT ab Stimulus-Erscheinen gemessen wird
+    fenster.flip()
 
     tasten = event.waitKeys(maxWait=MAX_WART, keyList=["f", "j", "escape"])
     rt_sek = uhr.getTime()
@@ -368,7 +374,7 @@ for trial_nr, (stim_text, korrekte_taste, bedingung) in enumerate(TRIALS, start=
         core.quit()
     else:
         antwort = tasten[0]
-        korrekt = (antwort == korrekte_taste)
+        korrekt = (antwort == TASTEN[korrekte_taste])   # ← korrigiert
         rt_ms   = round(rt_sek * 1000)
 
     feedback.setText("✓" if korrekt else "✗")
@@ -385,6 +391,7 @@ for trial_nr, (stim_text, korrekte_taste, bedingung) in enumerate(TRIALS, start=
 
 fenster.close()
 core.quit()
+
 ```
 
 **Aufgabe A – Abschnitte einteilen:**
@@ -462,8 +469,7 @@ Korrektur: _________________________________________________________
 **Aufgabe C – Fehler:**  
 Der Fehler liegt in der Reihenfolge von `fenster.flip()` und `uhr.reset()`:
 
-```python
-# Fehlerhaft (im obigen Skript):
+<pre><code class="language-python"># Fehlerhaft (im obigen Skript):
 stimulus.draw()
 fenster.flip()   # Stimulus erscheint → aber Uhr noch nicht gestartet!
 uhr.reset()      # Uhr startet erst NACH dem flip → RT zu kurz gemessen
@@ -472,9 +478,11 @@ uhr.reset()      # Uhr startet erst NACH dem flip → RT zu kurz gemessen
 stimulus.draw()
 uhr.reset()      # Uhr zurücksetzen
 fenster.flip()   # Stimulus erscheint → RT-Messung beginnt ab hier
-```
+</code></pre>
+
 
 **Effekt:** Die gemessene RT ist um die Zeit verkürzt, die zwischen `flip()` und `uhr.reset()` vergeht – das ist kurz, aber systematisch und damit ein stiller Fehler.
+
 </details>
 
 ---
