@@ -29,6 +29,7 @@ Lesen Sie das Skript **einmal komplett durch**, bevor Sie mit den Übungen begin
 Notieren Sie Stellen, die Sie nicht sofort verstehen. 
 
 ```python
+
 # flanker_experiment.py
 
 # ─── 1. Imports ───────────────────────────────────────────────────────────────
@@ -171,8 +172,7 @@ stimulus = visual.TextStim(     # ___________________________________________
 <details>
 <summary>Musterlösung</summary>
 
-~~~python
-fenster = visual.Window(        # Ein Grafikfenster wird erstellt
+<pre><code class="language-python">fenster = visual.Window(        # Ein Grafikfenster wird erstellt
     size=(1024, 768),           # Größe: 1024 Pixel breit, 768 hoch
     fullscr=VOLLBILD,           # Vollbildmodus an/aus (hier False)
     color=FENSTER_HG,           # Hintergrundfarbe (hier "black")
@@ -191,7 +191,7 @@ stimulus = visual.TextStim(     # Pfeil-Stimulus-Objekt erstellen
     color="white",
     height=80
 )
-~~~
+</code></pre>
 
 **Antworten:**
 1. `stimulus.text=""` weil der konkrete Pfeiltext erst in der Trial-Schleife gesetzt wird (`stimulus.setText(...)`). Das Objekt wird einmal erstellt und immer wieder befüllt – das ist effizienter als jedes Mal ein neues Objekt zu erzeugen.
