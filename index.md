@@ -31,4 +31,5 @@ Jede Woche enthält:
 | 5 | Module & PsychoPy | [Skript](woche05_module_psychopy.html) · [Colab öffnen](https://colab.research.google.com/github/LarissaLeist/programmier-uebungen/blob/main/woche05_module_psychopy_colab.ipynb) |
 | 5 | Lektürewoche | [Skript](lektuerewoche.html) |
 | 6 | Übungen | [Colab öffnen](https://colab.research.google.com/drive/10Q7-uHZMG0T92PQpcHtMd_9aI_OzQQpO#scrollTo=6d39f8cb) |
+| 7 | PsychoPy | [Skript](woche07_PsychoPy.html) · [Colab öffnen](https://colab.research.google.com/drive/1wJFeLpAINKdvI-lYrq8cxlhW1_oske12?usp=sharing)|
 
