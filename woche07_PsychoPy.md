@@ -2,7 +2,7 @@
 
 **Voraussetzung:** Python-Grundlagen geübt, PsychoPy **Coder** schon gesehen
 
-**Ziel:** Die Studierenden verstehen die Trennung von *Launch-Datei* und *Task-Datei*. Sie bauen die Task **Stück für Stück** auf — von der Instruktion über das Logfile bis zu einem kleinen Stroop-Experiment mit Tastenantwort und Reaktionszeit.
+**Ziel:** Die Trennung von *Launch-Datei* und *Task-Datei* verstehen. Sie bauen die Task **Stück für Stück** auf, von der Instruktion über das Logfile bis zu einem kleinen Stroop-Experiment mit Tastenantwort und Reaktionszeit.
 
 
 **Arbeitsumgebung heute:**
