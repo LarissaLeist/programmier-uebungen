@@ -119,13 +119,12 @@ In allen EEG-Studien erheben wir die Händigkeit der Versuchspersonen. Erweitere
 <details>
 <summary>Lösung Übung 1</summary>
 
-```python
-myDlg.addField(key='handedness', label='Händigkeit:', choices=["rechts", "links"])
+<pre><code class="language-python">myDlg.addField(key='handedness', label='Händigkeit:', choices=["rechts", "links"])
 # ... nach show() und der OK-Prüfung:
 handedness = info['handedness']
-```
+</code></pre>
 
-Der entscheidende Punkt: Weil wir über den **Schlüssel** `'handedness'` zugreifen, ist es völlig egal, an welcher Stelle das Feld eingefügt wurde.
+Der entscheidende Punkt: Weil wir über den <strong>Schlüssel</strong> <code>'handedness'</code> zugreifen, ist es völlig egal, an welcher Stelle das Feld eingefügt wurde.
 </details>
 
 ---
@@ -194,16 +193,15 @@ Zeige **nach** der Instruktion einen kurzen „Los geht's!", jetzt sollen nur di
 <details>
 <summary>Lösung Übung 2</summary>
 
-```python
-los = visual.TextStim(win, text="Los geht's!", color="black", height=1.0)
+<pre><code class="language-python">los = visual.TextStim(win, text="Los geht's!", color="black", height=1.0)
 los.draw()
 win.flip()
-event.waitKeys(keyList=["k, d"])
-#event.waitKeys(maxWait=3, keyList=["k, d"])
+event.waitKeys(keyList=["k", "d"])
+#event.waitKeys(maxWait=3, keyList=["k", "d"])
 #core.wait(1.0)
-```
+</code></pre>
 
-Häufiger Fehler: `win.flip()` vergessen → Bildschirm bleibt leer. Oder `draw()` vergessen → die alte Anzeige bleibt stehen. 
+Häufiger Fehler: <code>win.flip()</code> vergessen → Bildschirm bleibt leer. Oder <code>draw()</code> vergessen → die alte Anzeige bleibt stehen.
 </details>
 
 ---
@@ -255,15 +253,14 @@ data = "VPNummer,Versuchsleiter,0,TEST,rot,1,none,0,0.000\n"
 <details>
 <summary>Lösung Übung 3</summary>
 
-```python
-# Wir kann es ins Logfile geschrieben werden?
-#Entweder
+<pre><code class="language-python"># Wie kann es ins Logfile geschrieben werden?
+# Entweder
 logfile.write(data)
-#oder direkt
+# oder direkt
 logfile.write(f"{sbj_num},{vleitung},0,TEST,rot,1,none,0,0.000\n")
-```
+</code></pre>
 
-Zählt man die Kommas, müssen Kopfzeile und Datenzeile **identisch viele Felder** haben.
+Zählt man die Kommas, müssen Kopfzeile und Datenzeile <strong>identisch viele Felder</strong> haben.
 </details>
 
 ---
@@ -303,12 +300,12 @@ Ein Stroop-Trial besteht aus einem **Wort** und einer **Anzeigefarbe**. Ist beid
 <details>
 <summary>Lösung Übung 4a</summary>
 
-```python
-key_map["d"]   # → "rot"
+<pre><code class="language-python">key_map["d"]   # → "rot"
 key_map["x"]   # → KeyError! "x" ist kein Schlüssel im Dictionary
-```
+</code></pre>
 
-Ein Dictionary findet einen Wert nur über einen **vorhandenen Schlüssel**. Genau deshalb begrenzen wir gleich mit `keyList=["d", "k"]`, *welche* Tasten überhaupt akzeptiert werden, so kann gar kein ungültiger Schlüssel in `key_map` landen.
+Ein Dictionary findet einen Wert nur über einen <strong>vorhandenen Schlüssel</strong>. Genau deshalb begrenzen wir gleich mit <code>keyList=["d", "k"]</code>, <em>welche</em> Tasten überhaupt akzeptiert werden, so kann gar kein ungültiger Schlüssel in <code>key_map</code> landen.
+
 </details>
 
 ### 4.2 Die Schleife
@@ -421,14 +418,13 @@ In der Auswertung steht `korrekt = int(antwort == farbe)`. Warum das `int(...)` 
 <details>
 <summary>Lösung Übung 4b</summary>
 
-`antwort == farbe` ergibt einen **Wahrheitswert**: `True` oder `False`. `int(...)` macht daraus `1` bzw. `0`:
+<code>antwort == farbe</code> ergibt einen <strong>Wahrheitswert</strong>: <code>True</code> oder <code>False</code>. <code>int(...)</code> macht daraus <code>1</code> bzw. <code>0</code>:
 
-```python
-int(True)    # → 1
+<pre><code class="language-python">int(True)    # → 1
 int(False)   # → 0
-```
+</code></pre>
 
-Ohne `int(...)` stünde wörtlich `True`/`False` in der CSV. Mit `1`/`0` lässt sich später viel leichter rechnen — z. B. der Mittelwert der `korrekt`-Spalte ist direkt die **Trefferquote** (0.75 = 75 % richtig). Genau dieselbe Logik gilt für `kongruent`.
+Ohne <code>int(...)</code> stünde wörtlich <code>True</code>/<code>False</code> in der CSV. Mit <code>1</code>/<code>0</code> lässt sich später viel leichter rechnen — z. B. der Mittelwert der <code>korrekt</code>-Spalte ist direkt die <strong>Trefferquote</strong> (0.75 = 75 % richtig). Genau dieselbe Logik gilt für <code>kongruent</code>.
 </details>
 
 ### 🟦 Übung 4c — *Feedback*
@@ -438,17 +434,16 @@ Ohne `int(...)` stünde wörtlich `True`/`False` in der CSV. Mit `1`/`0` lässt 
 <details>
 <summary>Lösung Übung 4c</summary>
 
-```python
-        if korrekt == 1:
+<pre><code class="language-python">        if korrekt == 1:
             feedback = visual.TextStim(win, text="Richtig!", color="green", height=1.0)
         else:
             feedback = visual.TextStim(win, text="Falsch!", color="red", height=1.0)
         feedback.draw()
         win.flip()
         core.wait(0.5)
-```
+</code></pre>
 
-(Einfügen **vor** dem leerenden `win.flip()` am Schleifenende.) Das Feedback nutzt die bereits berechnete Variable `korrekt` — wir müssen nichts neu auswerten. Hier zahlt sich Übung 4b aus: Weil `korrekt` schon `1`/`0` ist, reicht ein simples `if korrekt == 1`. 
+(Einfügen <strong>vor</strong> dem leerenden <code>win.flip()</code> am Schleifenende.) Das Feedback nutzt die bereits berechnete Variable <code>korrekt</code> — wir müssen nichts neu auswerten. Hier zahlt sich Übung 4b aus: Weil <code>korrekt</code> schon <code>1</code>/<code>0</code> ist, reicht ein simples <code>if korrekt == 1</code>.
 </details>
 
 ### 🟨 Übung 4d — *Randomisierung*
@@ -458,11 +453,9 @@ Ohne `int(...)` stünde wörtlich `True`/`False` in der CSV. Mit `1`/`0` lässt 
 <details>
 <summary>Lösung</summary>
 
-```python
-import random
+<pre><code class="language-python">import random
 random.shuffle(trials)   # vor der for-Schleife
-```
-
+</code></pre>
 </details>
 
 ---
