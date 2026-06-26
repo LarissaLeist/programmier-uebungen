@@ -325,7 +325,7 @@ def zeige_instruktion(win, which, language='de', wait_key="space"):
     # ... Rest bleibt gleich
 </code></pre>
 
-Vorteil: Man kann die ganze Studie später mit einem anderen `language`-Parameter in Deutsch oder Englisch laufen lassen, ohne eine Zeile Code zu ändern.
+Vorteil: Man kann die ganze Aufgabe später mit einem anderen `language`-Parameter in Deutsch oder Englisch laufen lassen, ohne eine Zeile Code zu ändern.
 </details>
 
 ---
