@@ -204,6 +204,130 @@ event.waitKeys(keyList=["k", "d"])
 Häufiger Fehler: <code>win.flip()</code> vergessen → Bildschirm bleibt leer. Oder <code>draw()</code> vergessen → die alte Anzeige bleibt stehen.
 </details>
 
+
+### 2.4 Instruktionen zentral verwalten: `texts`-Dictionary und Hilfsfunktion
+
+Bisher haben wir für jede Instruktion einen neuen `TextStim` mit identischen Parametern geschrieben. Das führt zu **Code-Wiederholung** und macht es schwer, Texte zu ändern. 
+Die elegantere Lösung: Alle **Texte in einem Dictionary** sammeln, und eine **Hilfsfunktion** darum herum, die den Text einbindet, ihn auf **einheitliche Weise** anzeigt und auf die Antwort wartet.
+Damit können wir einfach zwischen Sprachen wechseln, oder beispielsweise verschiedene Aufgaben instruieren. 
+
+#### 2.4.1 Das `texts`-Dictionary
+
+Sammelt alle Instruktionen und Labels an **einer Stelle**, oben in der Datei:
+
+```python
+# Wir befinden uns in my_task_block1.py oder my_task_block4.py
+from psychopy import visual, core, event
+
+texts = {
+    'intro': "Gleich erscheinen Farbwörter. Manchmal in verschiedenen Farben, "
+             "als das Wort, das da steht.\n\n"
+             "Drücke die Taste für die FARBE, in der das Wort geschrieben ist:\n"
+             "d = rot   |   k = grün  \n\n"
+             "Drücke die Leertaste, um mit der Übung zu starten.",
+    'explanation1': "In der ersten Phase sehen Sie nur Übungstrials.",
+    'explanation2': "Nun folgt der Test. Bitte antworte so schnell und genau wie möglich.",
+    'fix': "+",
+}
+
+def zeige_instruktion(win, which, wait_key="space"):
+    """
+    Zeigt eine Instruktion aus dem texts-Dictionary an.
+    
+    Args:
+        win (visual.Window): Das PsychoPy-Fenster
+        which (str): Der Schlüssel im texts-Dictionary (z.B. 'intro', 'explanation1', etc.)
+        wait_key (str oder list): Welche Taste(n) akzeptiert werden (Standard: Leertaste)
+    """
+
+    text = texts[which]
+    instruktion = visual.TextStim(win, font='Arial', alignText='center', anchorVert='center', wrapWidth=50, color='black', height=0.8, text=text)
+    instruktion.draw()
+    win.flip()
+    
+    if isinstance(wait_key, str):
+          key_list = [wait_key]
+    else:
+          key_list = wait_key
+
+    key = event.waitKeys(keyList=key_list)
+    
+    if key[0] == "escape":
+        win.close()
+        core.quit()
+    
+    return key[0]
+
+def run_task(win, sbj_num, age, sex, vleitung):
+    # Instruktionen zeigen — jetzt über Hilfsfunktion
+    zeige_instruktion(win, 'intro')
+    zeige_instruktion(win, 'explanation1')
+    zeige_instruktion(win, 'explanation2')
+    
+    # ... (Rest kommt hier)
+```
+
+Worauf es ankommt:
+- **Alle Texte oben**: Der `texts`-Dictionary sitzt vor der Funktion, so kann man alle Instruktionen auf einen Blick überblicken und anpassen.
+- **Eine Hilfsfunktion**: `zeige_instruktion(...)` macht immer dasselbe: Text holen, `TextStim` erzeugen, zeichnen, auf Taste warten. Das `TextStim` muss nur **einmal** konfiguriert werden.
+- **Escape-Abbruch**: Wer während einer Instruktion `Escape` drückt, schließt das Fenster sauber und beendet das Programm — sehr praktisch beim Testen.
+- **Flexible Tasten**: Der Parameter `wait_key` erlaubt, bei bestimmten Instruktionen **andere** Tasten zu akzeptieren (z.B. nur `d` und `k` bei einem Feedback).
+
+> **Hinweis:** `isinstance(wait_key, str)` prüft, ob `wait_key` ein einzelner String ist (z.B. `"space"`), oder schon eine Liste (z.B. `["d", "k"]`). So kann man flexibel aufrufen: `zeige_instruktion(win, 'intro')` **oder** `zeige_instruktion(win, 'feedback', wait_key=["d", "k"])`.
+
+
+### 🟦 Übung 2.4a
+
+Füge ein neues Feld `'end'` zum `texts`-Dictionary hinzu mit dem Text „Danke für deine Teilnahme!" und zeige diese Abschlussinstruktion ganz am Ende der `run_task`-Funktion.
+
+<details>
+<summary>Lösung Übung 2.4a</summary>
+
+<pre><code class="language-python">texts = {
+    # ... alle bisherigen Einträge ...
+    'end': "Danke für deine Teilnahme!",
+}
+
+def run_task(win, sbj_num, age, sex, vleitung):
+    zeige_instruktion(win, 'intro')
+    # ... Rest der Funktion ...
+    # Ganz am Schluss:
+    zeige_instruktion(win, 'end')
+</code></pre>
+
+Das ist der Clou: Eine Zeile Code statt drei — die Hilfsfunktion kümmert sich um alles Weitere.
+</details>
+
+
+### 🟦 Übung 2.4b — *mit anderem Schlüssel*
+
+Erweitere `zeige_instruktion`, so dass man auch **mehrsprachig** arbeiten kann. Beispiel: Statt `zeige_instruktion(win, 'intro')` könnte man `zeige_instruktion(win, 'intro', language='en')` aufrufen und bekommt die englische Version.
+
+**Hinweis:** Das erfordert eine Verschachtelung des `texts`-Dicts — z.B. `texts['intro']['de']` und `texts['intro']['en']`. Das ist anspruchsvoll; wenn es zu komplex wird, ruhig überspringen.
+
+<details>
+<summary>Lösung Übung 2.4b</summary>
+
+<pre><code class="language-python"># Nested Dictionary
+texts = {
+    'intro': {
+        'de': "Gleich erscheinen Farbwörter...",
+        'en': "Soon you will see color words...",
+    },
+    'explanation1': {
+        'de': "In der ersten Phase...",
+        'en': "In the first phase...",
+    },
+}
+
+def zeige_instruktion(win, which, language='de', wait_key="space"):
+    text = texts[which][language]  # erst nach welcher Instruktion, dann nach Sprache
+    # ... Rest bleibt gleich
+</code></pre>
+
+Vorteil: Man kann die ganze Studie später mit einem anderen `language`-Parameter in Deutsch oder Englisch laufen lassen, ohne eine Zeile Code zu ändern.
+</details>
+
 ---
 
 ## Block 3 — Logfile mit Header schreiben
