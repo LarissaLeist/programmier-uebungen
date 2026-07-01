@@ -594,11 +594,11 @@ random.shuffle(trials)   # vor der for-Schleife
 ### Ausblick auf die nächsten Sitzungen
 - **Config** Variablen / Modul
 - **Dateien einlesen**: Für Bildmaterial, Audios, Counterbalancing
-- **Feedback**: RT zu schnell/langsam, Antwort richtig/falsch
 - **Positionen verändern**
-- **Dictionaries** 
+- - **Sortierregel**: Go-Nogo, Wisconsin Card Sorting Test
 - **Mehr Trials & Bedingungen**: Trial-Liste programmatisch erzeugen statt von Hand.
 - **Randomisierung & Gegenbalancierung** (vgl. `sbj_num % 2`).
+- **Verschiedene Antwortabfragen** (z.B. Tastendruck, Mouseklick, Skala, freie Texteingabe)
+### Optional:
 - **Fehlerbehandlung** mit `try/finally`, damit das Logfile auch bei Abstürzen sicher schließt.
-- **Timing-Präzision**: Genauigkeit von `waitKeys`-RTs, Frame-basiertes Timing.
-- **Sortierregel**: Go-Nogo, Wisconsin Card Sorting Test
+
