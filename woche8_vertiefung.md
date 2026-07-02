@@ -197,7 +197,6 @@ Lese nun alle Bilder aus dem Ordner ein und ordne sie direkt dem Wort und der Fa
         print("Farbe:", farbe)    # "blau"
 </code></pre>
 
-Jetzt steckt in <code>trials</code> alles, was die Schleife braucht: der <strong>Pfadbaustein</strong> (Dateiname) plus die <strong>Bedingungsinfo</strong> (Wort, Farbe) — vollautomatisch aus dem Ordner gezogen.
 </details>
 
 ---
