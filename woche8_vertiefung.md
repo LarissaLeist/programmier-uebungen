@@ -178,13 +178,23 @@ Lese nun alle Bilder aus dem Ordner ein und ordne sie direkt dem Wort und der Fa
 <details>
 <summary>Lösung Übung 3b</summary>
 
-<pre><code class="language-python">trials = []
-for dateiname in all_files:
-    basis = name.replace(".png", "")
-    wort, farbe = basis.split("_")
-    trials.append((dateiname, wort, farbe))
+<pre><code class="language-python">def run_task(win, sbj_num, age, sex, vleitung):
 
-# trials = [("blau_blau.png","blau","blau"), ("blau_gelb.png","blau","gelb"), ...]
+    # Pfad sauber zusammensetzen: Ordner + Dateiname
+    bildpfad = os.path.join("bilder", "*.png")
+    all_files = glob.glob(bildpfad)
+    
+    
+    for bildname in all_files:
+        bild = visual.ImageStim(win, image=bildname)
+        bild.draw()
+        win.flip() 
+        event.waitKeys(keyList=["space"])
+        
+        basisname = Path(bildname).stem
+        wort, farbe = basisname.split("_")       # split am "_" → ["gelb", "blau"] → entpackt
+        print("Wort:", wort)     # "gelb"
+        print("Farbe:", farbe)    # "blau"
 </code></pre>
 
 Jetzt steckt in <code>trials</code> alles, was die Schleife braucht: der <strong>Pfadbaustein</strong> (Dateiname) plus die <strong>Bedingungsinfo</strong> (Wort, Farbe) — vollautomatisch aus dem Ordner gezogen.
