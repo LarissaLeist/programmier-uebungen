@@ -300,3 +300,45 @@ plt.show()
 ```
 
 </details>
+
+## Daten aggregieren mit `groupby`
+
+Mit `groupby` teilt pandas die Tabelle in Gruppen auf und berechnet eine Kennzahl pro Gruppe.
+
+```python
+# Eine Gruppierungsvariable
+df.groupby("Congruency")["Reaction Time"].mean()
+
+# Zwei Gruppierungsvariablen
+df.groupby(["Participant", "Congruency"])["Reaction Time"].mean()
+```
+
+Operationen die ihr direkt anhängen könnt:
+
+```python
+.mean()    # Mittelwert
+.median()  # Median
+.std()     # Standardabweichung
+.count()   # Anzahl Einträge
+.sum()     # Summe
+```
+
+Mehrere Operationen auf einmal:
+
+```python
+df.groupby("Congruency")["Reaction Time"].agg(["mean", "std", "count"])
+```
+
+Das Ergebnis lässt sich wie eine Tabelle weiterverwenden:
+
+```python
+zusammenfassung = df.groupby("Congruency")["Reaction Time"].mean()
+print(zusammenfassung["con"])     # direkt auf eine Bedingung zugreifen
+```
+
+
+Zum Speichern einfach:
+
+```python
+zusammenfassung.to_csv("aggregiert.csv", index=False)
+```
