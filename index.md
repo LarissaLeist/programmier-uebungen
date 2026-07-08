@@ -34,5 +34,7 @@ Jede Woche enthält:
 | 7 | PsychoPy | [Skript](woche07_PsychoPy.html) · [Colab öffnen](https://colab.research.google.com/drive/1wJFeLpAINKdvI-lYrq8cxlhW1_oske12?usp=sharing)|
 | 8 | PsychoPy | [Skript](woche8_vertiefung.html) |
 | 9 | PsychoPy | [Skript](woche9.html) |
+| 9 | Auswertung | [Skript](auswertung.html) |
+
 
 
