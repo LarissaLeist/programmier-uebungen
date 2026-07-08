@@ -4,8 +4,8 @@
 | Block | Inhalt | Umgebung |
 |-------|--------|----------|
 | **A** | Antwort-Baukasten: Taste · Maus · Skala · Freitext | PsychoPy |
-| **B** | Simon-Aufgabe | PsychoPy |
-| **C** | Serial Recall | PsychoPy |
+| **B** | Serial Recall Aufgabe | PsychoPy |
+| **C** | Simon Aufgabe | PsychoPy |
 | **D** | CSV-Dateien zusammenführen | Spyder |
 | **E** | Erste Auswertung: Pandas & Seaborn | Spyder |
 
