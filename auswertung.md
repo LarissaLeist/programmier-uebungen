@@ -58,13 +58,9 @@ Worauf es ankommt:
 Wie viele verschiedene Versuchspersonen stecken in der Datei?
 
 <details>
-<summary>Lösung E1a</summary>
-
-```python
-print(df["Participant"].nunique())
-```
-
-`nunique()` zählt die eindeutigen Werte in einer Spalte.
+  <summary>Lösung E1a</summary>
+  <pre><code>print(df["Participant"].nunique())</code></pre>
+  <p><code>nunique()</code> zählt die eindeutigen Werte in einer Spalte.</p>
 </details>
 
 ### 🟦 Übung E1b — wie viele Trials pro Person?
@@ -72,13 +68,9 @@ print(df["Participant"].nunique())
 Gibt es gleich viele Trials bei allen Participants?
 
 <details>
-<summary>Lösung E1b</summary>
-
-```python
-print(df.groupby("Participant")["newindex"].count())
-```
-
-Unterschiede deuten auf abgebrochene Sitzungen oder fehlende Daten hin.
+  <summary>Lösung E1b</summary>
+  <pre><code>print(df.groupby("Participant")["newindex"].count())</code></pre>
+  <p>Unterschiede deuten auf abgebrochene Sitzungen oder fehlende Daten hin (bspw. durch technische Defekte).</p>
 </details>
 
 ---
@@ -105,12 +97,9 @@ print(df["korrekt"].mean())   # z.B. 0.85 = 85 % korrekt
 Berechne die Fehlerrate getrennt für jede Versuchsperson.
 
 <details>
-<summary>Lösung E2a</summary>
-
-```python
-fehler = df.groupby("Participant")["korrekt"].mean()
-print(1 - fehler)
-```
+  <summary>Lösung E2a</summary>
+  <pre><code>fehler = df.groupby("Participant")["korrekt"].mean()
+print(1 - fehler)</code></pre>
 </details>
 
 ### 🟦 Übung E2b — Korrektheit nach Kongruenz
@@ -118,13 +107,9 @@ print(1 - fehler)
 Die Spalte `Congruency` ist bereits vorhanden (`"con"` / `"incon"`). Berechne die mittlere Korrektheit getrennt nach Kongruenz.
 
 <details>
-<summary>Lösung E2b</summary>
-
-```python
-print(df.groupby("Congruency")["korrekt"].mean())
-```
-
-Erwartetes Muster: inkongruente Trials haben die niedrigere Korrektheit.
+  <summary>Lösung E2b</summary>
+  <pre><code>print(df.groupby("Congruency")["korrekt"].mean())</code></pre>
+  <p>Erwartetes Muster: inkongruente Trials haben die niedrigere Korrektheit.</p>
 </details>
 
 ---
@@ -150,15 +135,12 @@ plt.show()
 Zeige die Korrektheit für jede Versuchsperson als eigenen Balken.
 
 <details>
-<summary>Lösung E3a</summary>
-
-```python
-sns.barplot(data=df, x="Participant", y="korrekt")
+  <summary>Lösung E3a</summary>
+  <pre><code>sns.barplot(data=df, x="Participant", y="korrekt")
 plt.ylabel("Anteil korrekt")
 plt.title("Korrektheit pro Person")
 plt.ylim(0, 1)
-plt.show()
-```
+plt.show()</code></pre>
 </details>
 
 ---
@@ -180,16 +162,12 @@ print(korrekte.groupby("Congruency")["Reaction Time"].mean())
 Zeige die Verteilung aller Reaktionszeiten (nur korrekte Trials) als Histogramm.
 
 <details>
-<summary>Lösung E4a</summary>
-
-```python
-sns.histplot(data=korrekte, x="Reaction Time", bins=30)
+  <summary>Lösung E4a</summary>
+  <pre><code>sns.histplot(data=korrekte, x="Reaction Time", bins=30)
 plt.xlabel("Reaktionszeit (ms)")
 plt.title("RT-Verteilung (korrekte Trials)")
-plt.show()
-```
-
-Typisch: rechtsschiefe Verteilung und viele schnelle Antworten, langer Schweif nach rechts.
+plt.show()</code></pre>
+  <p>Typisch: rechtsschiefe Verteilung und viele schnelle Antworten, langer Schweif nach rechts.</p>
 </details>
 
 ### 🟨 Übung E4b — Ausreißer entfernen
@@ -234,29 +212,21 @@ plt.show()
 Zeige Korrektheit und RT nebeneinander in einer Grafik.
 
 <details>
-<summary>Lösung E5a</summary>
-
-```python
-korrekte     = df[df["korrekt"] == 1]
+  <summary>Lösung E5a</summary>
+  <pre><code>korrekte     = df[df["korrekt"] == 1]
 reihenfolge  = ["con", "incon"]
-
 fig, achsen = plt.subplots(1, 2, figsize=(10, 4))
-
 sns.barplot(data=df, x="Congruency", y="korrekt",
             order=reihenfolge, ax=achsen[0])
 achsen[0].set_title("Korrektheit")
 achsen[0].set_ylim(0, 1)
-
 sns.barplot(data=korrekte, x="Congruency", y="Reaction Time",
             order=reihenfolge, ax=achsen[1])
 achsen[1].set_title("Reaktionszeit (nur korrekt)")
-
 plt.tight_layout()
 plt.savefig("stroop_ergebnisse.png")
-plt.show()
-```
-
-`plt.subplots(1, 2)` erzeugt zwei nebeneinanderliegende Achsen. `ax=achsen[0]` und `ax=achsen[1]` sagen seaborn, in welche Achse es zeichnen soll.
+plt.show()</code></pre>
+  <p><code>plt.subplots(1, 2)</code> erzeugt zwei nebeneinanderliegende Achsen. <code>ax=achsen[0]</code> und <code>ax=achsen[1]</code> sagen seaborn, in welche Achse es zeichnen soll.</p>
 </details>
 
 ### 🟨 Übung E5b — Effekt pro Person prüfen
@@ -264,21 +234,16 @@ plt.show()
 Tritt der Stroop-Effekt bei allen Personen auf?
 
 <details>
-<summary>Lösung E5b</summary>
-
-```python
-korrekte = df[df["korrekt"] == 1]
-
+  <summary>Lösung E5b</summary>
+  <pre><code>korrekte = df[df["korrekt"] == 1]
 sns.barplot(data=korrekte, x="Participant", y="Reaction Time",
             hue="Congruency", hue_order=["con", "incon"])
 plt.xlabel("Person")
 plt.ylabel("Mittlere RT (ms)")
 plt.title("Stroop-Effekt pro Person")
 plt.tight_layout()
-plt.show()
-```
-
-`hue="Congruency"` fügt für jede Person zwei Balken ein. So sieht man sofort, ob das Muster konsistent über alle Personen ist.
+plt.show()</code></pre>
+  <p><code>hue="Congruency"</code> fügt für jede Person zwei Balken ein. So sieht man sofort, ob das Muster konsistent über alle Personen ist.</p>
 </details>
 
 ### 🟨 Übung E5c — welches Wort macht die meisten Fehler?
@@ -286,19 +251,14 @@ plt.show()
 Berechne die Fehlerrate getrennt nach dem gezeigten Wort (`Word shown`). Gibt es Unterschiede?
 
 <details>
-<summary>Lösung E5c</summary>
-
-```python
-fehler = df.groupby("Word shown")["korrekt"].mean()
+  <summary>Lösung E5c</summary>
+  <pre><code>fehler = df.groupby("Word shown")["korrekt"].mean()
 print(1 - fehler)
-
 sns.barplot(data=df, x="Word shown", y="korrekt")
 plt.ylabel("Anteil korrekt")
 plt.title("Korrektheit nach gezeigtem Wort")
 plt.ylim(0, 1)
-plt.show()
-```
-
+plt.show()</code></pre>
 </details>
 
 ## Daten aggregieren mit `groupby`
