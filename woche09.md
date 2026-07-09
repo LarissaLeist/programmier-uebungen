@@ -104,20 +104,15 @@ Worauf es ankommt:
 Füge einen mittleren Button „WEISS NICHT" bei `pos=(0, -6)` hinzu.
 
 <details>
-<summary>Lösung A2a</summary>
-
-```python
-mitte  = visual.Rect(win, width=6, height=4, pos=(0, -6), fillColor="lightgrey")
+  <summary>Lösung A2a</summary>
+  <pre><code>mitte  = visual.Rect(win, width=6, height=4, pos=(0, -6), fillColor="lightgrey")
 txt_m  = visual.TextStim(win, text="WEISS NICHT", pos=(0, -6), color="black", height=0.7)
-
 # zusätzlich zeichnen:
 for s in [links, rechts, mitte, txt_l, txt_r, txt_m]:
     s.draw()
-
 # in der while-Schleife:
 elif maus.isPressedIn(mitte):
-    antwort = "weiss_nicht"
-```
+    antwort = "weiss_nicht"</code></pre>
 
 Ein Button = ein `Rect` + ein `TextStim` + ein `elif`. Beliebig erweiterbar.
 </details>
@@ -127,47 +122,37 @@ Ein Button = ein `Rect` + ein `TextStim` + ein `elif`. Beliebig erweiterbar.
 Baue vier Buttons für eine Schulnoten-Abfrage: 1, 2, 3, 4 — nebeneinander.
 
 <details>
-<summary>Lösung A2b</summary>
-
-```python
-
-from psychopy import visual, core, event
-
+  <summary>Lösung A2b</summary>
+  <pre><code>from psychopy import visual, core, event
 win = visual.Window([800, 800], monitor="TestMonitor", units="deg",
                     color="white", fullscr=False)
-                    
+
 def frage_mausklick(win):
     maus = event.Mouse(win=win)
     positionen = [(-9, 0), (-3, 0), (3, 0), (9, 0)]
     noten      = ["1", "2", "3", "4"]
     buttons    = []
     labels     = []
-
     for i in range(len(noten)):
         b = visual.Rect(win, width=4, height=3, pos=positionen[i], fillColor="lightgrey")
         t = visual.TextStim(win, text=noten[i], pos=positionen[i], color="black", height=1.0)
         buttons.append(b)
         labels.append(t)
-
     for b in buttons:
         b.draw()
     for t in labels:
         t.draw()
     win.flip()
-
     antwort = None
     while antwort is None:
         for i in range(len(buttons)):
             if maus.isPressedIn(buttons[i]):
                 antwort = noten[i]
-                
+
     return str(antwort)
-    
+
 a = frage_mausklick(win)
-
-print(a,b)
-```
-
+print(a,b)</code></pre>
 </details>
 
 ---
@@ -222,12 +207,10 @@ Baue eine 5-stufige Skala mit den Endpunkten „stimme nicht zu" / „stimme vol
 <details>
 <summary>Lösung A3a</summary>
 
-```python
-skala = visual.Slider(win, ticks=(1, 2, 3, 4, 5),
+<pre><code>skala = visual.Slider(win, ticks=(1, 2, 3, 4, 5),
                       labels=["stimme nicht zu", "", "", "", "stimme voll zu"],
                       pos=(0, -2), size=(18, 1),
-                      granularity=1, style="rating", color="black")
-```
+                      granularity=1, style="rating", color="black")</code></pre>
 </details>
 
 ### 🟨 Übung A3b — Bestätigung mit Leertaste
@@ -235,10 +218,8 @@ skala = visual.Slider(win, ticks=(1, 2, 3, 4, 5),
 Aktuell endet die Skala beim ersten Klick. Ändere es so, dass die VP die Wahl mit der Leertaste **bestätigen** muss (vorher noch änderbar).
 
 <details>
-<summary>Lösung A3b</summary>
-
-```python
-bestaetigt = False
+  <summary>Lösung A3b</summary>
+  <pre><code>bestaetigt = False
 while not bestaetigt:
     frage.draw()
     skala.draw()
@@ -246,10 +227,8 @@ while not bestaetigt:
     if skala.getRating() is not None:
         if event.getKeys(keyList=["space"]):
             bestaetigt = True
-rating = skala.getRating()
-```
-
-VP kann den Marker verschieben und erst mit Leertaste festlegen, das ist realistischer für Fragebögen.
+rating = skala.getRating()</code></pre>
+  <p>VP kann den Marker verschieben und erst mit Leertaste festlegen, das ist realistischer für Fragebögen.</p>
 </details>
 
 
@@ -309,14 +288,10 @@ Erklärung:
 Erlaube nur Ziffern (z.B. für eine Altersabfrage). Tipp: `k.isdigit()`.
 
 <details>
-<summary>Lösung A4a</summary>
-
-```python
-elif k.isdigit():        # ersetzt den len(k)==1-Zweig
-    eingabe = eingabe + k
-```
-
-`"7".isdigit()` ist `True`, `"a".isdigit()` ist `False`.
+  <summary>Lösung A4a</summary>
+  <pre><code>elif k.isdigit():        # ersetzt den len(k)==1-Zweig
+    eingabe = eingabe + k</code></pre>
+  <p><code>"7".isdigit()</code> ist <code>True</code>, <code>"a".isdigit()</code> ist <code>False</code>.</p>
 </details>
 
 ### 🟨 Übung A4b — leere Eingabe verhindern
@@ -324,12 +299,9 @@ elif k.isdigit():        # ersetzt den len(k)==1-Zweig
 Enter soll erst akzeptiert werden, wenn mindestens ein Zeichen eingegeben wurde.
 
 <details>
-<summary>Lösung A4b</summary>
-
-```python
-if k == "return" and len(eingabe) > 0:
-    fertig = True
-```
+  <summary>Lösung A4b</summary>
+  <pre><code>if k == "return" and len(eingabe) > 0:
+    fertig = True</code></pre>
 </details>
 
 ---
@@ -349,20 +321,15 @@ if k == "return" and len(eingabe) > 0:
 Baue einen Mini-Ablauf: erst ein Simon-Trial (Taste + RT), direkt danach „Wie sicher warst du?" (Skala 1–7). Beide Ergebnisse in **eine** Logfile-Zeile.
 
 <details>
-<summary>Lösung A5</summary>
-
-```python
-# Simon-Trial
+  <summary>Lösung A5</summary>
+  <pre><code># Simon-Trial
 taste, rt, korrekt = run_simon_trial(win, reizseite, clock)
-
 # Skala direkt danach
 sicherheit, tmp = frage_skala(win, "Wie sicher warst du?")
-
 # Gemeinsam loggen
 logfile.write(
     f"{sbj_num},{trial_num},{reizseite},{taste},{korrekt},{rt:.3f},{sicherheit}\n"
-)
-```
+)</code></pre>
 </details>
 
 ---
@@ -448,28 +415,19 @@ Worauf es ankommt:
 Ändere die Wortliste auf 7 Wörter. Was musst du im Code anpassen?
 
 <details>
-<summary>Lösung B1</summary>
-
-```python
-woerter = ["Baum", "Fenster", "Sonne", "Musik", "Brief", "Hund", "Wasser"]
-```
-
-Nichts weiter! `range(len(woerter))` passt sich automatisch an. Das ist der Vorteil: Nur die Liste ändern, die Schleife bleibt gleich.
+  <summary>Lösung B1</summary>
+  <pre><code>woerter = ["Baum", "Fenster", "Sonne", "Musik", "Brief", "Hund", "Wasser"]</code></pre>
+  <p>Nichts weiter! <code>range(len(woerter))</code> passt sich automatisch an. Das ist der Vorteil: Nur die Liste ändern, die Schleife bleibt gleich.</p>
 </details>
-
 ### 🟦 Übung B2: zufällige Reihenfolge
 
 Mische die Wörter vor der Lernphase zufällig. Was verändert das am Test?
 
 <details>
-<summary>Lösung B2</summary>
-
-```python
-random.shuffle(woerter)
-# ... dann Lernphase wie gehabt
-```
-
-Die Reihenfolge der Präsentation variiert zwischen VPs. Position 1 ist jetzt nicht mehr immer dasselbe Wort → wichtig für Counterbalancing.
+  <summary>Lösung B2</summary>
+  <pre><code>random.shuffle(woerter)
+# ... dann Lernphase wie gehabt</code></pre>
+  <p>Die Reihenfolge der Präsentation variiert zwischen VPs. Position 1 ist jetzt nicht mehr immer dasselbe Wort → wichtig für Counterbalancing.</p>
 </details>
 
 ### 🟨 Übung B3 — freie Reihenfolge (Free Recall)
@@ -477,29 +435,21 @@ Die Reihenfolge der Präsentation variiert zwischen VPs. Position 1 ist jetzt ni
 Beim **Free Recall** muss die VP die Wörter in beliebiger Reihenfolge aufschreiben, in einem einzigen Eingabefeld (alle Wörter, durch Komma getrennt). Wie könntest du das umsetzen?
 
 <details>
-<summary>Lösung B3</summary>
-
-```python
-antwort = frage_freitext(win, "Schreibe alle Wörter, getrennt durch Komma:")
+  <summary>Lösung B3</summary>
+  <pre><code>antwort = frage_freitext(win, "Schreibe alle Wörter, getrennt durch Komma:")
 erinnert = antwort.split(",")
-
 # Zielwörter in Kleinbuchstaben als Liste vorbereiten
 woerter_klein = []
 for w in woerter:
     woerter_klein.append(w.lower())
-
 # Zählen wie viele erinnerten Wörter in der Zielliste stehen
 korrekt_gesamt = 0
 for a in erinnert:
     if a.strip().lower() in woerter_klein:
         korrekt_gesamt += 1
-
-logfile.write(f"{sbj_num},{antwort},{korrekt_gesamt}\n")
-```
-
-`split(",")` zerlegt die Eingabe am Komma in eine Liste. Dann prüft man, wie viele der eingegebenen Wörter in der Original-Liste stehen.
+logfile.write(f"{sbj_num},{antwort},{korrekt_gesamt}\n")</code></pre>
+  <p><code>split(",")</code> zerlegt die Eingabe am Komma in eine Liste. Dann prüft man, wie viele der eingegebenen Wörter in der Original-Liste stehen.</p>
 </details>
-
 ---
 
 
@@ -583,14 +533,10 @@ Erklärung:
 Die aktuelle Liste ist rein zufällig. Baue stattdessen **exakt 10 links / 10 rechts** und mische.
 
 <details>
-<summary>Lösung C1</summary>
-
-```python
-trials = ["links"] * 10 + ["rechts"] * 10
-random.shuffle(trials)
-```
-
-`shuffle` ändert nur die Reihenfolge, nie die Zusammensetzung.
+  <summary>Lösung C1</summary>
+  <pre><code>trials = ["links"] * 10 + ["rechts"] * 10
+random.shuffle(trials)</code></pre>
+  <p><code>shuffle</code> ändert nur die Reihenfolge, nie die Zusammensetzung.</p>
 </details>
 
 ### 🟨 Übung C2 vertikaler Simon
@@ -598,17 +544,13 @@ random.shuffle(trials)
 Baue die Aufgabe auf **oben/unten** um (Tasten `p` = oben, `l` = unten). Welche Teile musst du anfassen — und welche bleiben unberührt?
 
 <details>
-<summary>Lösung C2</summary>
-
-```python
-positionen   = {"oben": (0, 5), "unten": (0, -5)}
+  <summary>Lösung C2</summary>
+  <pre><code>positionen   = {"oben": (0, 5), "unten": (0, -5)}
 seiten       = ["oben", "unten"]
 tasten_seite = {"p": "oben", "l": "unten"}
 ziel_taste   = "l"
-# waitKeys(keyList=["p", "l"], ...)
-```
-
-Nur Positionen, Seitenliste und Tastenzuordnung ändern sich. Die Schleifenstruktur (draw–flip, Uhr, Logfile) bleibt komplett gleich.
+# waitKeys(keyList=["p", "l"], ...)</code></pre>
+  <p>Nur Positionen, Seitenliste und Tastenzuordnung ändern sich. Die Schleifenstruktur (draw–flip, Uhr, Logfile) bleibt komplett gleich.</p>
 </details>
 
 ---
@@ -646,7 +588,7 @@ gesamt.to_csv(os.path.join("Logfiles", "alle_vps.csv"), index=False)
 print("Fertig! Zeilen gesamt:", len(gesamt))
 ```
 
-Worauf es ankommt:
+Erklärung:
 - `pd.read_csv(datei)` liest eine CSV-Datei als **DataFrame** (eine Tabelle mit Zeilen und Spalten).
 - `tabellen` ist eine Liste von DataFrames — pro Datei eine.
 - `pd.concat(tabellen)` klebt sie untereinander — wie copy-paste in Excel, nur automatisch.
@@ -659,13 +601,9 @@ Worauf es ankommt:
 Füge nach dem Zusammenfügen eine Zeile ein, die ausgibt, wie viele **eindeutige VPs** in der Gesamttabelle stehen.
 
 <details>
-<summary>Lösung D1</summary>
-
-```python
-print("VPs:", gesamt["vp_num"].nunique())
-```
-
-`nunique()` zählt die eindeutigen Werte in einer Spalte. Praktisch um zu prüfen, ob wirklich alle Dateien eingelesen wurden.
+  <summary>Lösung D1</summary>
+  <pre><code>print("VPs:", gesamt["vp_num"].nunique())</code></pre>
+  <p><code>nunique()</code> zählt die eindeutigen Werte in einer Spalte. Praktisch um zu prüfen, ob wirklich alle Dateien eingelesen wurden.</p>
 </details>
 
 ### 🟦 Übung D2 — nur Simon-Daten
@@ -673,14 +611,10 @@ print("VPs:", gesamt["vp_num"].nunique())
 Im Ordner liegen `VP_1_simon.csv`, `VP_1_recall.csv`, usw. Lies **nur** die Simon-Dateien ein.
 
 <details>
-<summary>Lösung D2</summary>
-
-```python
-suchmuster = os.path.join("Logfiles", "*_simon.csv")
-alle_dateien = glob.glob(suchmuster)
-```
-
-`*_simon.csv` als Muster — alles was auf `_simon.csv` endet.
+  <summary>Lösung D2</summary>
+  <pre><code>suchmuster = os.path.join("Logfiles", "*_simon.csv")
+alle_dateien = glob.glob(suchmuster)</code></pre>
+  <p><code>*_simon.csv</code> als Muster — alles was auf <code>_simon.csv</code> endet.</p>
 </details>
 
 ### 🟨 Übung D3 — Dateiname als Spalte
@@ -688,15 +622,11 @@ alle_dateien = glob.glob(suchmuster)
 Füge beim Einlesen den Dateinamen als neue Spalte `"quelldatei"` ein. Warum kann das nützlich sein?
 
 <details>
-<summary>Lösung D3</summary>
-
-```python
-tabellen = []
+  <summary>Lösung D3</summary>
+  <pre><code>tabellen = []
 for datei in alle_dateien:
     df = pd.read_csv(datei)
     df["quelldatei"] = os.path.basename(datei)   # Dateiname ohne Ordnerpfad
-    tabellen.append(df)
-```
-
-Nützlich fürs Debugging: Wenn eine Zeile seltsame Werte hat, sieht man sofort, aus welcher Datei sie kommt.
+    tabellen.append(df)</code></pre>
+  <p>Nützlich fürs Debugging: Wenn eine Zeile seltsame Werte hat, sieht man sofort, aus welcher Datei sie kommt.</p>
 </details>
