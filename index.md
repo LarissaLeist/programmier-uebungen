@@ -5,7 +5,7 @@ Es enthält wöchentliche Lernmaterialien, Codebeispiele, Übungsaufgaben und Mi
 
 ## Struktur
 - **Wochen 1–6:** Python‑Grundlagen  
-- **Wochen 7–13:** PsychoPy für Experimente  
+- **Wochen 7–10:** PsychoPy für Experimente  
 
 Jede Woche enthält:
 - Lernziele  
@@ -35,6 +35,7 @@ Jede Woche enthält:
 | 8 | PsychoPy | [Skript](woche8_vertiefung.html) |
 | 9 | PsychoPy | [Skript](woche09.html) |
 | 9 | Auswertung | [Skript](auswertung.html) |
+| 10 | Quiz | [Skript](woche10.html) |
 
 
 
